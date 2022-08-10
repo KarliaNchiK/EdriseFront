@@ -38,7 +38,7 @@ export default {
 
   server: {
     host: "0.0.0.0",
-    port: 5000,
+    port: 5321,
   },
 
   telemetry: false,
@@ -52,6 +52,10 @@ export default {
   plugins: [
     { src: "~/plugins/observer.js", ssr: false }
   ],
+
+  static:{
+
+  },
 
   components: false,
 
