@@ -41,19 +41,19 @@ export default {
     items: [
       {
         title: "Технологии",
-        img: "me/stayBorder",
+        img: "/me/stayBorder",
         left: true,
         comp: "technology",
       },
       {
         title: "Образование",
-        img: "me/headRight",
+        img: "/me/headRight",
         left: false,
         comp: "education",
       },
       {
         title: "О себе",
-        img: "me/smile",
+        img: "/me/smile",
         left: true,
         comp: "experience",
       },

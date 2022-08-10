@@ -34,7 +34,8 @@
           </p>
         </div>
       </div>
-      <div class="img-f-container rounded-lg"></div>
+      <!-- <div class="img-f-container rounded-lg"></div> -->
+      <img src="mobile/pictures/sunset3.jpg" class="me-photo rounded-lg" />
     </div>
     <div class="text-m-h4 text-right ff-raleway text-uppercase">
       <p class="anim-scale-down-2">Кто я +</p>
@@ -68,9 +69,15 @@ export default {};
     text-transform: uppercase;
   }
 
+  .me-photo {
+    width: 50%;
+    object-fit: cover;
+    object-position: 75% center;
+  }
+
   & > .img-f-container {
     width: 50%;
-    background-image: url("mobile/pictures/sunset3.jpg");
+    background-image: url("/mobile/pictures/sunset3.jpg");
     background-size: cover;
     background-position: 75% center;
     box-shadow: inset 0 0 12px 2px var(--v-colorBackground-base);
