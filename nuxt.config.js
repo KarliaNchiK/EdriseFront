@@ -82,6 +82,8 @@ export default {
     middleware: ["mobile"],
   },
 
+  buildDir: '.nuxt',
   build: {
+    publicPath: '.nuxt/dist/'
   }
 }
