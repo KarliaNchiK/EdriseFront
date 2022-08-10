@@ -1,0 +1,32 @@
+<template>
+  <div class="justify-space-between d-glass pa-4" id="startSecondPart">
+    <div v-for="item in items" :key="item.blocks.length">
+      <div class="text-m-title-1 font-weight-medium mt-4 ml-2">
+        {{ item.title }}
+      </div>
+      <div class="d-flex flex-wrap">
+        <my-item
+          v-for="bl in item.blocks"
+          :key="bl.title"
+          :title="bl.title"
+          :icon="bl.icon"
+          :color="bl.color"
+          :warn="bl.warn"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import myItem from "~/components/ui/myItem.vue";
+import { technology } from "~/plugins/const.js";
+export default {
+  components: {
+    myItem,
+  },
+  created() {
+    this.items = technology;
+  },
+};
+</script>

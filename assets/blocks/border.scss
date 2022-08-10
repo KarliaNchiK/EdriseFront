@@ -1,0 +1,5 @@
+@each $place in (bottom, top, left, right){
+    .my-border-#{$place}{
+        border-#{$place}: 1px var(--v-cBorder-base) solid;
+    }
+}

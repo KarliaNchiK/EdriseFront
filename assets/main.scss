@@ -1,0 +1,76 @@
+@use "./blocks/size.scss";
+@use "./blocks/indents.scss";
+@use "./blocks/border.scss";
+@use "./text.scss";
+@use "./ui/ui.scss"; 
+@use "./ui/animate.scss"; 
+
+.v-application p{
+  margin-bottom: 0px !important;
+}
+body{
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 20px;
+  border: 1px solid var(--v-colorBackground-base);
+}
+body::-webkit-scrollbar {
+  width: 0.6vw;
+  background: var(--v-colorBackground-base);
+}
+
+// .page-enter-active, .page-leave-active{
+//     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)
+// }
+// .page-enter,
+// .page-leave-to {
+//   opacity: 0;
+//   transform: translateX(100%);
+// }
+
+.z-5 {
+  z-index: 5;
+}
+
+.op-0{
+  opacity: 0 !important;
+}
+
+.op-1{
+  opacity: 1 !important;
+}
+
+.c-pointer{
+  cursor: pointer;
+}
+
+.scroll-custom::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 20px;
+  border: 1px solid var(--v-colorBackground-base);
+}
+.scroll-custom::-webkit-scrollbar {
+  width: 12px;
+  background: var(--v-colorBackground-base);
+  border-radius: 20px;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+
+.p-absolute{
+  position: absolute !important;
+}
+
+.p-relative{
+  position: relative !important;
+}
+
+.before-none::before{
+  display: none;
+}

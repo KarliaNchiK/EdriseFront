@@ -1,0 +1,47 @@
+@mixin my-theme-colors($step, $start){
+    @for $i from 1 through 6 {
+
+        & .btn-slider:nth-child(#{$i}) {
+            background: linear-gradient(
+            to bottom,
+            hsl($start + $step * $i, 80%, 70%),
+            hsl($start + $step * ($i + 1), 100%, 40%)
+            );
+
+            &::before {
+                background: linear-gradient(
+                    to bottom,
+                    hsl($start + $step * ($i + 1), 80%, 70%),
+                    hsl($start + $step * ($i + 2), 100%, 40%)
+                );
+            }
+        }
+    }
+}
+
+@mixin block-angel($size, $width, $color, $padding, $opacity: 1){
+        padding: $padding;
+        position: relative;
+        &::before {
+            opacity: $opacity;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $size;
+            height: $size;
+            border-top: $width $color solid;
+            border-left: $width $color solid;
+          }
+          &::after {
+            opacity: $opacity;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: $size;
+            height: $size;
+            border-bottom: $width $color solid;
+            border-right: $width $color solid;
+          }
+}
