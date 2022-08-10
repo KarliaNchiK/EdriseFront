@@ -28,7 +28,7 @@
     >
       <img
         :style="`--offsetX:${x}px; --offsetY:${y}px`"
-        src="/pc/pictures/stay.jpg"
+        src="pc/pictures/stay.jpg"
         class="img-three mouse-transform"
         ref="img"
       />

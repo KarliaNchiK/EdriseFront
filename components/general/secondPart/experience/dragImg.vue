@@ -11,7 +11,7 @@
       ref="divDrag"
     >
       <img
-        src="/pc/pictures/eye.jpg"
+        src="pc/pictures/eye.jpg"
         class="full-size p-absolute"
         :draggable="false"
       />

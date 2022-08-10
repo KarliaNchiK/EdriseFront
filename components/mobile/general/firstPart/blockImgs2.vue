@@ -28,7 +28,7 @@ export default {
   }),
   computed: {
     lowSize() {
-      return this.mdAndUp ? "/pc" : "/mobile";
+      return this.mdAndUp ? "pc" : "mobile";
     },
   },
   methods: {

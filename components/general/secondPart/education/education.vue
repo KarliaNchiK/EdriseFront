@@ -24,7 +24,7 @@
       </div>
     </div>
     <v-dialog v-model="diplom" v-if="diplom" width="unset">
-      <card-photo :n="n" :imgs="diploms" path="/docs2/" />
+      <card-photo :n="n" :imgs="diploms" path="docs2/" />
     </v-dialog>
   </div>
 </template>

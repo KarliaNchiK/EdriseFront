@@ -35,7 +35,7 @@ export default {
       return this.$vuetify.theme.dark ? "Dark.jpg" : ".jpg";
     },
     path() {
-      return "/pc" + this.img + this.darkPicture;
+      return "pc" + this.img + this.darkPicture;
     },
   },
 };

@@ -11,7 +11,7 @@
       ref="divDrag"
     >
       <img
-        src="/mobile/pictures/eye.jpg"
+        src="mobile/pictures/eye.jpg"
         class="full-size p-absolute"
         :draggable="false"
       />
