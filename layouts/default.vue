@@ -71,7 +71,7 @@ export default {
         x: e.x,
         y: e.y,
       });
-      if (this.needCanvas) {
+      if (!this.isMobil &&this.needCanvas) {
         this.$refs.myCanvas.move();
       }
     },

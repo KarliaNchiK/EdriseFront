@@ -18,20 +18,12 @@ export default {
   asyncData({ isMobile }) {
     return { isMobile };
   },
-  head() {
-    return {
-      link: [{ rel: "stylesheet", type: "text/css", href: this.theme }],
-    };
-  },
 
   mixins: [sizeMix],
   components: {
     threePart: () => import("../components/general/threePart/index.vue"),
   },
   computed: {
-    theme() {
-      return `css/text/${this.mobile ? "mobile" : "desktop"}.css`;
-    },
     bv1() {
       return this.$store.getters["visible/bv1"];
     },
