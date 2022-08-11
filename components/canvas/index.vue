@@ -44,11 +44,10 @@ class Orb {
       color = `hsl(${h}, 100%, ${l}%)`;
 
     if (distToC > this.data.ph - 30 || sin > 0) {
-      this.data.canvasCtx.strokeStyle =
-        this.data.canvasCtx.fillStyle =
-        this.data.canvasCtx.shadowColor =
-          color;
-      this.data.canvasCtx.shadowBlur = this.data.cfg.color.blur;
+      this.data.canvasCtx.strokeStyle = this.data.canvasCtx.fillStyle =
+        // this.data.canvasCtx.shadowColor =
+        color;
+      // this.data.canvasCtx.shadowBlur = this.data.cfg.color.blur;
       this.data.canvasCtx.beginPath();
       this.data.canvasCtx.arc(x, y, size, 0, 2 * Math.PI);
       mNear ? this.data.canvasCtx.stroke() : this.data.canvasCtx.fill();
@@ -75,16 +74,17 @@ export default {
     orbsList: [],
     cfg: {
       orbsCount: 50,
-      minVelocity: 0.06,
+      minVelocity: 0.1,
       ringsCount: 8,
       scale: 0,
       color: {},
     },
     opacity: null,
+    frameNeed: 0,
   }),
   computed: {
     startOpacity() {
-      return this.$vuetify.theme.dark ? 80 : 50;
+      return this.$vuetify.theme.dark ? 70 : 50;
     },
     stepOpacity() {
       return this.startOpacity - 15;
@@ -121,7 +121,6 @@ export default {
           start: 25,
           step: 10,
           l: 60,
-          blur: 20,
         };
         return;
       }
@@ -129,16 +128,20 @@ export default {
         start: 360,
         step: 10,
         l: 65,
-        blur: 6,
       };
     },
     loop() {
       requestAnimationFrame(this.loop);
       // this.canvasCtx.globalCompositeOperation = "normal";
-
-      this.canvasCtx.clearRect(0, 0, this.cw, this.ch);
       // this.canvasCtx.globalCompositeOperation = "multiply";
-      this.orbsList.map((orb) => orb.refresh());
+      if (this.frameNeed == 2) {
+        this.canvasCtx.clearRect(0, 0, this.cw, this.ch);
+
+        this.orbsList.map((orb) => orb.refresh());
+
+        this.frameNeed = 0;
+      }
+      this.frameNeed++;
     },
 
     async createStartdust() {

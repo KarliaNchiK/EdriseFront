@@ -2,7 +2,7 @@ export default {
   head: {
     mode: 'universal',
     titleTemplate: '%s',
-    title: 'Ainur',
+    title: 'Edrise',
     htmlAttrs: {
       lang: 'en'
     },
@@ -28,13 +28,13 @@ export default {
         href: "https://fonts.googleapis.com/css2?family=Fira+Mono&family=IBM+Plex+Mono:wght@500;700&family=Mulish:wght@700&family=Poppins:wght@600&display=swap&family=Raleway:wght@400;500&display=swap",
       },
     ],
-    script: [
-      {
-        src:
-          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
-        body: true
-      }
-    ]
+    // script: [
+    //   {
+    //     src:
+    //       'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+    //     body: true
+    //   }
+    // ]
   },
 
   server: {

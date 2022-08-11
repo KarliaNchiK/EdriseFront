@@ -89,7 +89,7 @@ export default {
         top: sdvig,
         behavior: "smooth",
       });
-    }, 600),
+    }, 400),
 
     resize() {
       this.scrollWidth = window.innerWidth * 1.798;

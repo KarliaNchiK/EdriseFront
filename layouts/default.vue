@@ -32,6 +32,7 @@ export default {
   },
   data: () => ({
     load: false,
+    scrollActive: false,
   }),
   computed: {
     canvasAlternate() {
@@ -59,11 +60,17 @@ export default {
       }
     },
     scrollEvent() {
-      if (this.canvasAlternate) {
-        this.$refs.myCanvas.ScrollEvent();
-      }
-      if (this.blockThreeVisible == false) {
-        this.$store.commit("data/set_scroll", window.pageYOffset);
+      if (this.scrollActive == false) {
+        this.scrollActive = true;
+        setTimeout(() => {
+          if (this.canvasAlternate) {
+            this.$refs.myCanvas.ScrollEvent();
+          }
+          if (this.blockThreeVisible == false) {
+            this.$store.commit("data/set_scroll", window.pageYOffset);
+          }
+          this.scrollActive = false;
+        }, 25);
       }
     },
     mMove(e) {
@@ -71,7 +78,7 @@ export default {
         x: e.x,
         y: e.y,
       });
-      if (!this.isMobil &&this.needCanvas) {
+      if (!this.isMobil && this.needCanvas) {
         this.$refs.myCanvas.move();
       }
     },

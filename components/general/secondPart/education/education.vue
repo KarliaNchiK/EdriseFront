@@ -1,24 +1,28 @@
 <template>
-  <div ref="educBlock" class="pl-4">
+  <div>
     <block-educ
       v-for="educ in educs"
       :key="educ.name"
       :data="educ"
       class="mt-not-f-4"
     />
-    <div class="mt-not-f-4 p-relative flex-grow-1 d-glass pa-4">
+    <div class="mt-not-f-4 p-relative flex-grow-1 d-glass pa-4 pb-2">
       <div class="d-flex flex-column div-container-docs full-height">
         <p class="text-m-body-1 font-weight-medium">Дипломы и сертификаты</p>
-        <div class="flex-grow-1 pt-2 p-relative">
-          <div class="d-flex div-docs pa-1 pb-4 scroll-custom p-absolute">
-            <card-doc
-              @click.native="activePhoto(item.name)"
-              class="mr-md-4 doc-shadow"
+        <div class="flex-grow-1 p-relative">
+          <div class="d-flex div-docs pa-2 scroll-custom p-absolute full-size">
+            <div
+              class="p-relative c-pointer mr-4 "
+              @click="activePhoto(item.name)"
               v-for="(item, n) in diploms"
               :key="n"
-              :title="item.title"
-              :name="item.name"
-            />
+            >
+              <img
+                :src="`images/lowSizeDocs/${item.name}`"
+                alt=""
+                class="full-height doc-shadow"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -31,14 +35,12 @@
 
 <script>
 import blockEduc from "./educBlock.vue";
-import cardDoc from "./cardDoc.vue";
 import { diploms, educs } from "~/plugins/const.js";
 import sizeMix from "~/plugins/mixins/size.js";
 export default {
   mixins: [sizeMix],
   components: {
     blockEduc,
-    cardDoc,
     cardPhoto: () => import("../../../ui/cardPhoto.vue"),
   },
   data: () => ({
@@ -65,9 +67,10 @@ export default {
 
 .div-container-docs {
   .doc-shadow {
+    box-sizing: border-box;
     @for $i from 1 through 9 {
       &:nth-child(#{$i}) {
-        box-shadow: 0 0 2px hsl(350 + $i * 5, 100%, 50%);
+        box-shadow: 0 0 3px hsl(350 + $i * 5, 100%, 50%);
       }
     }
   }
@@ -75,13 +78,7 @@ export default {
 
 @media (min-width: 960px) {
   .div-docs {
-    height: 100%;
-    width: 100%;
     overflow-x: auto;
-
-    & > div {
-      height: 100%;
-    }
   }
 }
 </style>
