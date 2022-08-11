@@ -39,7 +39,7 @@ export default {
 
   server: {
     // host: "0.0.0.0",
-    port: 5321,
+    port: 3000,
   },
 
   telemetry: false,
