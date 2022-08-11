@@ -15,10 +15,10 @@
       <drag-img />
     </div>
     <my-divider></my-divider>
-    <div class="p-relative mt-md-8 mt-4">
+    <div class="p-relative my-4">
       <main-content />
     </div>
-    <my-divider class="mt-4"></my-divider>
+    <my-divider></my-divider>
     <right-block />
   </div>
 </template>

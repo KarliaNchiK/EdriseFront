@@ -14,7 +14,11 @@
   </svg>
 </template>
 
-
+<script>
+export default {
+  props: ["close"],
+};
+</script>
 
 <script>
 export default {
@@ -24,7 +28,6 @@ export default {
   methods: {
     switchSvg() {
       this.$emit("click");
-      this.close = !this.close;
     },
   },
 };

@@ -1,20 +1,15 @@
 <template>
-  <div class="d-flex flex-column full-size text-body-1">
+  <div class="d-flex flex-column full-size">
     <div class="text-naw-title font-weight-medium">
       {{ title }}
     </div>
-    <div class="mt-md-4 text-naw-subtitle mt-2">
+    <div class="text-m-body-1 my-2">
       {{ text }}
     </div>
-    <div class="py-3 d-flex justify-center">
-      <slot></slot>
-    </div>
-    <div class="mt-md-4 mt-2 div-img-reColor">
+    <div class="div-img-reColor">
       <img-re-color :img="img" :imgGrey="imgGrey" :mobile="true" size="8vw" />
     </div>
-    <div class="my-md-4 mt-2 text-naw-subtitle font-italic">
-      "{{ subtitle }}"
-    </div>
+    <div class="mt-2 text-naw-subtitle font-italic">"{{ subtitle }}"</div>
   </div>
 </template>
 

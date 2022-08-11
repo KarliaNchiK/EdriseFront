@@ -1,7 +1,12 @@
 <template>
   <div class="div-two p-relative pt-8">
-    <card-block v-for="(block, n) in items" :key="block.title" v-bind="block" :id="n == 2 ? 'endSecondPart' : ''">
-      <component :is="block.comp" ></component>
+    <card-block
+      v-for="(block, n) in items"
+      :key="block.title"
+      v-bind="block"
+      :id="'secondPart' + n"
+    >
+      <component :is="block.comp"></component>
     </card-block>
   </div>
 </template>
@@ -30,7 +35,7 @@ export default {
   },
   mounted() {
     this.$observer.observe(this.$el);
-    const block = document.querySelector("#endSecondPart");
+    const block = document.querySelector("#secondPart2");
     this.$observer.observe(block);
   },
 };

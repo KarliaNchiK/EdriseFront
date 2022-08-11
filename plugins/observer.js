@@ -35,7 +35,7 @@ function observeEntry(target, visible, $store) {
             });
             $store.commit("general/canvas/set_canvas", bv1 || visible);
             break;
-        case "endSecondPart":
+        case "secondPart2":
             if (visible) {
                 $store.commit("visible/set_visible", {
                     block: 'renderThree',

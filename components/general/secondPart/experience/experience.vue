@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters class="flex-row" id="endSecondPart">
+  <v-row no-gutters class="flex-row" id="secondPart2">
     <v-col class="pr-8 d-flex flex-column full-height" cols="10">
       <div class="p-relative d-glass">
         <div class="pa-4 d-flex">

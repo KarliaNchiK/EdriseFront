@@ -1,17 +1,25 @@
 <template>
   <div :class="[dark ? 'darkTheme' : 'lightTheme']" :style="`--way:${way}`">
+    <div
+      class="
+        btns-slider
+        d-flex
+        justify-space-between
+        mb-4
+        rounded-xl
+        p-relative
+      "
+    >
+      <div
+        v-for="n in aboutMe.length"
+        :key="'icon_' + n"
+        class="btn-slider rounded-circle p-relative c-pointer full-size"
+        :class="{ 'b-op-1': activeBlock == n - 1 }"
+        @click="go(n)"
+      ></div>
+    </div>
     <transition name="tr-slider" mode="out-in">
-      <contentCard :key="activeBlock" v-bind="aboutMe[activeBlock]">
-        <div class="btns-slider d-flex justify-space-between">
-          <div
-            v-for="n in aboutMe.length"
-            :key="'icon_' + n"
-            class="btn-slider rounded-circle p-relative c-pointer"
-            :class="{ 'b-op-1': activeBlock == n - 1 }"
-            @click="go(n)"
-          ></div>
-        </div>
-      </contentCard>
+      <contentCard :key="activeBlock" v-bind="aboutMe[activeBlock]" />
     </transition>
   </div>
 </template>
@@ -47,10 +55,9 @@ export default {
 <style lang="scss" scoped>
 @use "~/assets/mixins.scss" as m;
 
-.b-op-1::before {
-  opacity: 1 !important;
-  box-shadow: inset 0 0 6px grey;
-  filter: blur(0px) !important;
+.b-op-1 {
+  background: red;
+  transform: scale(2) translateY(-25%);
 }
 .lightTheme .btns-slider {
   @include m.my-theme-colors(15, 300);
@@ -62,26 +69,15 @@ export default {
 
 .btns-slider {
   height: 4vmin !important;
-  width: 55%;
+  background: rgba(255, 255, 255, 0.753);
+  border: 1px solid grey;
+  padding: 20px;
 
   & .btn-slider {
+    transition: transform 0.5s ease;
     filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.664));
     width: 2.2vmin;
     height: 2.2vmin;
-
-    &::before {
-      left: -50%;
-      top: -50%;
-      position: absolute;
-      content: "";
-      height: 200%;
-      width: 200%;
-      z-index: -1;
-      border-radius: 50%;
-      filter: blur(1px);
-      transition: opacity 0.5s ease;
-      opacity: 0;
-    }
   }
 }
 

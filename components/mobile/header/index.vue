@@ -1,20 +1,11 @@
 <template>
   <div class="d-flex div-appBar py-2 justify-end z-5">
     <div class="div-naw-butt mt-3">
-      <naw-svg class="c-pointer" @click="drawer = !drawer" />
+      <naw-svg class="c-pointer" @click="drawer = !drawer" :close="drawer" />
     </div>
     <my-dialog bottom content-class="colorBackground" :dialog="drawer">
       <mobile-naw-draw @dialogFalse="drawer = false" />
     </my-dialog>
-    <!-- <v-dialog
-      v-model="drawer"
-      v-if="drawer"
-      fullscreen
-      hide-overlay
-      transition="transY"
-    >
-      <mobile-naw-draw @dialogFalse="drawer = false" />
-    </v-dialog> -->
   </div>
 </template>
 

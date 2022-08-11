@@ -99,7 +99,7 @@ export default {
     window.addEventListener("resize", this.resize);
     this.resize();
     this.$observer.observe(this.$el);
-    const block = document.querySelector("#endSecondPart");
+    const block = document.querySelector("#secondPart2");
     this.$observer.observe(block);
   },
   beforeDestroy() {

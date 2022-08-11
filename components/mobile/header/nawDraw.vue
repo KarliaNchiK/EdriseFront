@@ -58,7 +58,7 @@
               px-2
               rounded-xl
             "
-            @click="$emit('dialogFalse')"
+            @click="scrollPage(n)"
           >
             <p
               class="
@@ -89,6 +89,12 @@ export default {
     icons: [],
     texts: [],
   }),
+  methods: {
+    scrollPage(n) {
+      this.$emit("dialogFalse");
+      document.getElementById("secondPart" + n).scrollIntoView(true);
+    },
+  },
   mounted() {
     this.icons = icons;
     this.texts = appBarText.slice();

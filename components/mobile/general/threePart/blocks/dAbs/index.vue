@@ -75,7 +75,7 @@ export default {
 
         @for $i from 1 through 5 {
           &:nth-child(#{$i}) {
-            animation-delay: -1s * $i;
+            animation-delay: -3s * $i;
           }
         }
       }

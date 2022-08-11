@@ -12,7 +12,7 @@ const themeCache = new LRU({
 export default {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-        dark: true,
+        dark: false,
         themes: {
             dark: {
                 colorBackground: "#1c222a",
