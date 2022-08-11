@@ -1,5 +1,6 @@
 export default {
   head: {
+    mode: 'universal',
     titleTemplate: '%s',
     title: 'Ainur',
     htmlAttrs: {

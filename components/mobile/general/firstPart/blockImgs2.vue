@@ -7,7 +7,7 @@
     >
       <img
         :class="[`triangle-${n}`, { 'active-container': n == active || n == active2 }]"
-        :src="lowSize + '/pictures/' + img.src + '.jpg'"
+        :src="'images/' + lowSize + '/pictures/' + img.src + '.jpg'"
         alt=""
         class="full-size elevation-3"
       />

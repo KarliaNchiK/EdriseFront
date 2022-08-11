@@ -16,7 +16,7 @@
             :key="n"
             class="p-relative elevation-4 div-doc d-flex"
           >
-            <img :src="`/lowSizeDocs/${item.name}`" alt="" class="img-docs" />
+            <img :src="`images/lowSizeDocs/${item.name}`" alt="" class="img-docs" />
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
         {{ diploms[n].info }}
       </p>
       <div class="mt-4 div-img-dip-mobile d-flex align-center justify-center">
-        <img :src="'/docs2/' + diploms[n].name" alt="" />
+        <img :src="'images/docs2/' + diploms[n].name" alt="" />
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ export default {
       for (let img of this.diploms) {
         min = this.heightImg[0] < this.heightImg[1] ? 0 : 1;
         this.blocks[min].push(img);
-        this.heightImg[min] += await this.loadImg(`/lowSizeDocs/${img.name}`);
+        this.heightImg[min] += await this.loadImg(`images/lowSizeDocs/${img.name}`);
       }
     },
   },

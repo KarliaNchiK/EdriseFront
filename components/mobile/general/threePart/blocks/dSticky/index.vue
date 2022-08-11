@@ -11,7 +11,7 @@
         cols="9"
         class="p-relative flex-grow-0 d-flex full-height div-text-r-image"
       >
-        <img src="mobile/pictures/stay.jpg" class="img-three" />
+        <img src="images/mobile/pictures/stay.jpg" class="img-three" />
         <div class="flex-grow-1 full-size d-flex ml-2">
           <div class="full-height c-pointer">
             <test-svg />

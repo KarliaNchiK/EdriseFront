@@ -8,7 +8,7 @@
       class="div-first-block-img p-relative c-pointer pa-2"
       :style="`--color:${img.color};`"
     >
-      <img :src="'/pc/pictures/' + img.src + '.jpg'" />
+      <img :src="'images/pc/pictures/' + img.src + '.jpg'" />
     </div>
   </div>
 </template>

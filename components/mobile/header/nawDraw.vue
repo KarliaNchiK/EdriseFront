@@ -12,7 +12,7 @@
   >
     <div class="d-flex full-width border-b div-top">
       <div class="div-avatar border-r d-flex justify-center pa-1 flex-shrink-0">
-        <img src="mobile/me/stayBorder.jpg" class="rounded-circle" />
+        <img src="images/mobile/me/stayBorder.jpg" class="rounded-circle" />
       </div>
       <div class="flex-grow-1 py-2 pl-2 overflow-hidden">
         <p class="font-weight-medium text-naw-title">

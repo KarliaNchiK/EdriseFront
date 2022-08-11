@@ -35,7 +35,7 @@
         </div>
       </div>
       <!-- <div class="img-f-container rounded-lg"></div> -->
-      <img src="mobile/pictures/sunset3.jpg" class="me-photo rounded-lg" />
+      <img src="images/mobile/pictures/sunset3.jpg" class="me-photo rounded-lg" />
     </div>
     <div class="text-m-h4 text-right ff-raleway text-uppercase">
       <p class="anim-scale-down-2">Кто я +</p>

@@ -1,6 +1,6 @@
 <template>
   <div class="p-relative div-m-d c-pointer d-flex flex-column d-block">
-    <img :src="`/lowSizeDocs/${name}`" alt="" class="img-docs" />
+    <img :src="`images/lowSizeDocs/${name}`" alt="" class="img-docs" />
     <p class="text-m-subtitle-2 p-d-title white--text op-0 p-absolute">
       {{ title }}
     </p>

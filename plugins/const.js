@@ -278,43 +278,43 @@ export const aboutMe = [
     {
         title: "Целеустремленность",
         text: 'На 2 курсе с командой разрабатывали стартап - "Краудфандинговая платформа с подключением фондов". Данный стартап не увидел света, из за слабостей команды. Но это был важный опыт. Благодаря которому, я решил идти дальше по этому пути. Изучая свои слабости и исправляя их, каждый день я становился лучше. И вот уже победитель в конкурсе "50 лучших инновационных идей для РТ".',
-        img: "experience/quest.jpg",
-        imgGrey: "experience/questGrey.jpg",
+        img: "images/experience/quest.jpg",
+        imgGrey: "images/experience/questGrey.jpg",
         subtitle: 'Благородный муж думает о должном. Низкий человек думает о том, что выгодно. © "Конфуций'
     },
     {
         title: "Я с командой",
         text: "Я участвовал в множестве разных мероприятий, таких как: очные хакатоны, запуск стартапов, разная проектная деятельность, CASE IN. В них, командная работа была ключевым элементом хорошего результата. Я споконйо решал конфликты, мотивировал команды, занимался управленческой деятельностью. Благодаря этому мы часто доходили до финала.",
-        img: "experience/command.jpg",
-        imgGrey: "experience/commandGrey.jpg",
+        img: "images/experience/command.jpg",
+        imgGrey: "images/experience/commandGrey.jpg",
         subtitle: 'Подумай, как трудно изменить себя самого, и ты поймешь, сколь ничтожны твои возможности изменить других. © "Вольтер'
     },
     {
         title: "Что дало образование",
         text: "В школьном возрасте я прошёл курс актёрского мастерства, что придаёт мне уверенности при разговорах и выступлениях. Большой вклад внёс КГЭУ > ИЦТЭ > кафедра ИК. Научили использовать математические методы для решения бизнес задач. Прводить исследования информационных систем компаний. Планировать и разрабатывать математические модели и программное обеспечение для автоматизации компонентов информационных систем.",
-        img: "experience/kgeu.jpg",
-        imgGrey: "experience/kgeuGrey.jpg",
+        img: "images/experience/kgeu.jpg",
+        imgGrey: "images/experience/kgeuGrey.jpg",
         subtitle: 'Знание — настолько ценная вещь, что его не зазорно добывать из любого источника. © "Фома Аквинский'
     },
     {
         title: "Чему научился сам",
         text: "С 8 класса начал изучать программирование. Первым языком был С++. В 9 классе написал на нём пару программ для автоаматизации своих бытовых задач. С 11 класса начал изучать веб программирование. На текущий момент хорошо знаю и практикую несколько фреймоврков для FrontEnd'а и BackEnd'a. Могу написать нейросеть на pyTorch. ",
-        img: "experience/self.jpg",
-        imgGrey: "experience/selfGrey.jpg",
+        img: "images/experience/self.jpg",
+        imgGrey: "images/experience/selfGrey.jpg",
         subtitle: 'Я слышу и забываю. Я вижу и запоминаю. Я делаю и понимаю. © "Конфуций'
     },
     {
         title: "Что будет",
         text: "Стремлюсь стать специалистом ",
-        img: "experience/grow.jpg",
-        imgGrey: "experience/growGrey.jpg",
+        img: "images/experience/grow.jpg",
+        imgGrey: "images/experience/growGrey.jpg",
         subtitle: 'Имей мужество пользоваться собственным умом. © "Кант, Иммануил'
     },
     {
         title: "Хобби",
         text: "",
-        img: "experience/daisyFlower.jpg",
-        imgGrey: "experience/daisyFlowerGrey.jpg",
+        img: "images/experience/daisyFlower.jpg",
+        imgGrey: "images/experience/daisyFlowerGrey.jpg",
         subtitle: 'Блаженство тела состоит в здоровье, блаженство ума — в знании. © "Фалес Милетский'
     },
 ];
@@ -392,7 +392,7 @@ export const imgs = [
   export const educs = [
     {
       name: "Казанский Государственный Энергетический Университет",
-      imgSrc: "pc/pictures/kgeu",
+      imgSrc: "images/pc/pictures/kgeu",
       dateEnd: "2021",
       qual: "Бакалавр",
       colorDip: "Красный",
@@ -401,7 +401,7 @@ export const imgs = [
     },
     {
       name: "Казанский национальный исследовательский технический университет им. А.Н. Туполева",
-      imgSrc: "pc/pictures/kai",
+      imgSrc: "images/pc/pictures/kai",
       dateEnd: "2023",
       qual: "Магистр",
       colorDip: "Синий",

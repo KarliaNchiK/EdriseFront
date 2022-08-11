@@ -113,7 +113,7 @@ export default {
       return this.$vuetify.theme.dark ? "Dark.jpg" : ".jpg";
     },
     path() {
-      return "mobile" + this.img + this.darkPicture;
+      return "images/mobile" + this.img + this.darkPicture;
     },
   },
 };

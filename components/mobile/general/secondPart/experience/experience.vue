@@ -37,9 +37,6 @@ export default {
     dragImg,
     MyDivider,
   },
-  mounted(){
-    console.log("expMount")
-  }
 };
 </script>
 
