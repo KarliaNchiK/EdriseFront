@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     theme() {
-      return `/css/text/${this.mobile ? "mobile" : "desktop"}.css`;
+      return `css/text/${this.mobile ? "mobile" : "desktop"}.css`;
     },
     bv1() {
       return this.$store.getters["visible/bv1"];
