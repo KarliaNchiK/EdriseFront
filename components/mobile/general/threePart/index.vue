@@ -40,7 +40,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 185vh;
+    height: 185vh;
     z-index: 2;
   }
 }

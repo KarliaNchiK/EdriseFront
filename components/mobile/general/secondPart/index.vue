@@ -35,9 +35,9 @@ export default {
   },
   mounted() {
     const blocks = document.querySelectorAll("#secondPart2, #secondPart1");
-    blocks.forEach(block => {
+    blocks.forEach((block) => {
       this.$observer.observe(block);
-    })
+    });
   },
 };
 </script>
@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .div-two {
   & > div {
-    min-height: 100vmin;
+    height: 140vmin;
   }
 }
 </style>

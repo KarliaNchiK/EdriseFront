@@ -111,12 +111,12 @@ export default {
 .div-show-more {
   $size: 20vmin;
   will-change: transform;
-  min-height: 100vmin;
+  height: 100vmin;
   width: calc(100vmin - 16px);
   background-image: var(--path);
   background-size: 100%;
   background-position: center 30%;
-  animation: border-img-anim 6s alternate infinite;
+  // animation: border-img-anim 6s alternate infinite;
   opacity: 0.9;
 
   & > div {
@@ -133,12 +133,12 @@ export default {
   }
 }
 
-@keyframes scale-switch {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.9);
-  }
-}
+// @keyframes scale-switch {
+//   0% {
+//     transform: scale(1);
+//   }
+//   100% {
+//     transform: scale(0.9);
+//   }
+// }
 </style>

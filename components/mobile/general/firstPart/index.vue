@@ -1,13 +1,14 @@
 <template>
-  <div class="mb-8" id="firstPart">
+  <div id="firstPart" class="first-part">
     <block-images class="block-my-images" />
-    <name-svg />
+    <div>
+      <name-svg />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["visible"],
   components: {
     blockImages: () => import("./blockImgs.vue"),
     nameSvg: () => import("~/components/mySvg/svgName.vue"),
@@ -19,6 +20,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.first-part {
+  height: 95vh;
+}
 .block-my-images {
   min-height: 80vh;
 }
