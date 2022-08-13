@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="p-relative full-height div-three-main d-flex align-center"
-    :class="[dark ? 'darkTheme' : 'lightTheme']"
-  >
+  <div class="p-relative full-height div-three-main d-flex align-center">
     <div
       class="full-height div-content flex-grow-1 pr-4"
       :style="`--way:${way}`"
@@ -11,13 +8,42 @@
         <contentCard :key="activeBlock" v-bind="aboutMe[activeBlock]" />
       </transition>
     </div>
-    <div class="btns-slider d-flex justify-space-between flex-column pr-4">
+    <div
+      class="
+        flex-shrink-0
+        btns-slider
+        d-flex
+        justify-space-between
+        flex-column
+        rounded-xl
+        p-relative
+      "
+      :class="[dark ? 'darkTheme' : 'lightTheme']"
+    >
       <div
         v-for="n in aboutMe.length"
         :key="'icon_' + n"
-        class="btn-slider rounded-circle p-relative c-pointer"
-        :class="{ 'b-op-1': activeBlock == n - 1 }"
+        class="
+          btn-slider
+          c-pointer
+          full-size
+          d-flex
+          align-center
+          justify-center
+          z-5
+        "
         @click="go(n)"
+      >
+        <v-icon :class="{ 'b-op-1': activeBlock == n - 1 }">
+          {{ aboutMe[n - 1].icon }}
+        </v-icon>
+      </div>
+      <div
+        class="switch-backgr p-absolute rounded-xl full-width"
+        :style="{
+          transform: `translateY(${100 * activeBlock}%)`,
+          backgroundColor: `hsla(${switchBack}, 100%, 70%)`,
+        }"
       ></div>
     </div>
   </div>
@@ -38,6 +64,10 @@ export default {
     dark() {
       return this.$vuetify.theme.dark;
     },
+    switchBack() {
+      let a = this.dark ? 10 : 320;
+      return a + 10 * this.activeBlock;
+    },
   },
   methods: {
     go(n) {
@@ -54,45 +84,46 @@ export default {
 <style lang="scss" scoped>
 @use "~/assets/mixins.scss" as m;
 
-.b-op-1::before {
+.b-op-1 {
   opacity: 1 !important;
-  box-shadow: inset 0 0 6px grey;
-  filter: blur(0px) !important;
+  color: white !important;
+  transform: scale(1.2);
 }
 .div-three-main {
-  &.lightTheme .btns-slider {
-    @include m.my-theme-colors(15, 300);
+  .lightTheme > .btn-slider {
+    @include m.my-theme-colors-i(10, 330);
   }
 
-  &.darkTheme .btns-slider {
-    @include m.my-theme-colors(5, 10);
+  .darkTheme > .btn-slider {
+    @include m.my-theme-colors-i(10, 10);
   }
 
   & .btns-slider {
-    & .btn-slider {
-      filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.664));
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    box-shadow: inset 0 0 3px grey;
+    height: 60%;
+    width: 2.5vw;
 
-      &::before {
-        left: -50%;
-        top: -50%;
-        position: absolute;
-        content: "";
-        height: 200%;
-        width: 200%;
-        z-index: -1;
-        border-radius: 50%;
-        filter: blur(1px);
-        transition: opacity 0.5s ease;
-        opacity: 0;
-      }
+    .switch-backgr {
+      left: 0;
+      top: 0;
+      height: calc(100% / 6);
+      transition-property: transform, background-color;
+      transition: 0.5s cubic-bezier(0.17, -0.62, 0.67, 1.29);
+      border: 1px solid rgba(177, 177, 177, 0.671);
+    }
 
-      &:hover::before {
-        opacity: 0.7;
+    .btn-slider {
+      i {
+        opacity: 0.6;
+        transition-property: color, transform;
+        transition: 0.5s ease;
+        font-size: 1.3vw;
       }
     }
   }
   & > .div-content {
-    left: 0;
     transition: top 0.4s ease-in-out;
   }
 }
@@ -105,22 +136,11 @@ export default {
 .tr-slider-leave-to {
   opacity: 0;
 }
-@media (min-width: 960px) {
-  .div-three-main {
-    & > .btns-slider {
-      & > .btn-slider {
-        width: 1.4vmin;
-        height: 1.4vmin;
-      }
-      height: 35%;
-    }
-  }
 
-  .tr-slider-enter {
-    transform: translateY(calc(var(--way) * 30px));
-  }
-  .tr-slider-leave-to {
-    transform: translateY(calc(var(--way) * -30px));
-  }
+.tr-slider-enter {
+  transform: translateY(calc(var(--way) * 30px));
+}
+.tr-slider-leave-to {
+  transform: translateY(calc(var(--way) * -30px));
 }
 </style>

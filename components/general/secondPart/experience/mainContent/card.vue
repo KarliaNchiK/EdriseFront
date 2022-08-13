@@ -6,15 +6,13 @@
     <div class="mt-md-4 text-m-body-2 mt-2">
       {{ text }}
     </div>
-    <div class="py-3 d-flex justify-center">
-      <slot></slot>
-    </div>
-    <div class="mt-md-4 mt-2 div-img-reColor">
+    <div class="mt-2 div-img-reColor flex-grow-1 py-4">
       <img-re-color
         :img="img"
         :imgGrey="imgGrey"
         :mobile="false"
         size="8vw"
+        class="elevation-2"
       />
     </div>
     <div class="my-md-4 mt-2 text-m-subtitle-1 font-italic">
@@ -30,17 +28,3 @@ export default {
   props: ["title", "text", "img", "imgGrey", "subtitle"],
 };
 </script>
-
-
-<style lang="scss" scoped>
-@media (min-width: 960px) {
-  .div-img-reColor {
-    flex-grow: 1;
-  }
-}
-@media (max-width: 960px) {
-  .div-img-reColor {
-    height: 30vh;
-  }
-}
-</style>

@@ -1,7 +1,8 @@
 export const state = () => ({
     scrollY: 0,
     x: 0,
-    y: 0
+    y: 0,
+    mobileMorph: 0
 })
 
 export const mutations = {
@@ -11,6 +12,9 @@ export const mutations = {
     set_mPosition(state, position) {
         state.x = position.x;
         state.y = position.y;
+    },
+    set_mobileMorph(state, position) {
+        state.mobileMorph = position
     }
 }
 
@@ -21,5 +25,6 @@ export const actions = {
 export const getters = {
     scrollY: s => s.scrollY,
     x: s => s.x,
-    y: s => s.y
+    y: s => s.y,
+    morph: s => s.mobileMorph
 }

@@ -1,12 +1,7 @@
 <template>
   <div class="main-container">
     <component :is="firstPart" :visible="bv1" />
-    <component
-      :is="secondPart"
-      :top="bv1"
-      :visible="bv2"
-      :bottom="bv3"
-    />
+    <component :is="secondPart" :top="bv1" :visible="bv2" :bottom="bv3" />
     <component :is="threePart" v-if="renderThree" :visible="bv3" />
   </div>
 </template>
@@ -57,9 +52,7 @@ export default {
     },
   },
   beforeDestroy() {
-    if (!this.mobile) {
-      this.$observer.disconnect();
-    }
+    this.$observer.disconnect();
   },
 };
 </script>

@@ -17,14 +17,6 @@
 <script>
 export default {
   props: ["close"],
-};
-</script>
-
-<script>
-export default {
-  data: () => ({
-    close: false,
-  }),
   methods: {
     switchSvg() {
       this.$emit("click");

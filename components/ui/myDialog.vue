@@ -11,7 +11,9 @@
     :class="[contentClass, { 'm-rounded': rounded }]"
     v-if="active"
     ref="dContent"
-    :style="`--height:${height}%; --round:${20 - (20 * height) / 100}vmin;`"
+    :style="`--height:${100 - height}%; --round:${
+      20 - (20 * height) / 100
+    }vmin;`"
   >
     <slot></slot>
   </div>
@@ -48,14 +50,16 @@ export default {
     stop: false,
     inScroll: false,
     offsetY: 0,
+    setTim: null,
   }),
   watch: {
     dialog(n) {
+      clearTimeout(this.setTim);
       if (n) {
         this.active = true;
         this.stop = false;
         this.$nextTick().then(() => {
-          setTimeout(() => {
+          this.setTim = setTimeout(() => {
             this.$refs.dContent.classList.add("height-full");
             this.addEvents();
           }, 100);
@@ -64,7 +68,7 @@ export default {
         return;
       }
       this.$refs.dContent.classList.remove("height-full");
-      setTimeout(() => {
+      this.setTim = setTimeout(() => {
         this.removeEvents();
         this.gSdvig = 0;
         this.sdvig = 0;
@@ -85,7 +89,6 @@ export default {
       this.$refs.dContent.addEventListener("touchstart", this.tStart);
       this.$refs.dContent.addEventListener("touchmove", this.tMove);
       this.$refs.dContent.addEventListener("touchend", this.tEnd);
-      this.$refs.dContent.addEventListener("touchcancel", this.tClose);
       window.addEventListener("touchstart", this.wTStart);
     },
     removeEvents() {
@@ -93,7 +96,6 @@ export default {
       this.$refs.dContent.removeEventListener("touchstart", this.tStart);
       this.$refs.dContent.removeEventListener("touchmove", this.tMove);
       this.$refs.dContent.removeEventListener("touchend", this.tEnd);
-      this.$refs.dContent.removeEventListener("touchcancel", this.tClose);
     },
     wTStart(e) {
       this.tClose();
@@ -157,7 +159,7 @@ export default {
   transition: transform 0.5s ease !important;
 }
 .height-full {
-  transform: translateY(calc(100% - var(--height))) !important;
+  transform: translateY(var(--height)) !important;
 }
 .m-rounded {
   border-radius: var(--round) var(--round) 0 0;

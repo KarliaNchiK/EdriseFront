@@ -1,6 +1,7 @@
 <template>
-  <div :class="[dark ? 'darkTheme' : 'lightTheme']" :style="`--way:${way}`">
+  <div :style="`--way:${way}`">
     <div
+      :class="[dark ? 'darkTheme' : 'lightTheme']"
       class="
         btns-slider
         d-flex
@@ -13,9 +14,27 @@
       <div
         v-for="n in aboutMe.length"
         :key="'icon_' + n"
-        class="btn-slider rounded-circle p-relative c-pointer full-size"
-        :class="{ 'b-op-1': activeBlock == n - 1 }"
+        class="
+          btn-slider
+          c-pointer
+          full-size
+          d-flex
+          align-center
+          justify-center
+          z-5
+        "
         @click="go(n)"
+      >
+        <v-icon :class="{ 'b-op-1': activeBlock == n - 1 }">
+          {{ aboutMe[n - 1].icon }}
+        </v-icon>
+      </div>
+      <div
+        class="switch-backgr p-absolute rounded-xl full-height"
+        :style="{
+          transform: `translateX(${100 * activeBlock}%)`,
+          backgroundColor: `hsla(${switchBack}, 100%, 70%)`,
+        }"
       ></div>
     </div>
     <transition name="tr-slider" mode="out-in">
@@ -39,6 +58,10 @@ export default {
     dark() {
       return this.$vuetify.theme.dark;
     },
+    switchBack() {
+      let a = this.dark ? 10 : 320;
+      return a + 10 * this.activeBlock;
+    },
   },
   methods: {
     go(n) {
@@ -56,28 +79,35 @@ export default {
 @use "~/assets/mixins.scss" as m;
 
 .b-op-1 {
-  background: red;
-  transform: scale(2) translateY(-25%);
+  color: white !important;
+  transform: scale(1.2);
 }
-.lightTheme .btns-slider {
-  @include m.my-theme-colors(15, 300);
+.lightTheme > .btn-slider {
+  @include m.my-theme-colors-i(10, 330);
 }
 
-.darkTheme .btns-slider {
-  @include m.my-theme-colors(5, 10);
+.darkTheme > .btn-slider {
+  @include m.my-theme-colors-i(10, 10);
 }
 
 .btns-slider {
-  height: 4vmin !important;
+  height: 9vmin !important;
   background: rgba(255, 255, 255, 0.753);
   border: 1px solid grey;
-  padding: 20px;
+  box-shadow: inset 0 0 3px grey;
+
+  .switch-backgr {
+    width: calc(100% / 6);
+    transition-property: transform, background-color;
+    transition: 0.5s cubic-bezier(0.17, -0.62, 0.67, 1.29);
+    border: 1px solid rgba(177, 177, 177, 0.671);
+  }
 
   & .btn-slider {
-    transition: transform 0.5s ease;
-    filter: drop-shadow(0 0 2px rgba(128, 128, 128, 0.664));
-    width: 2.2vmin;
-    height: 2.2vmin;
+    i {
+      transition-property: color, transform;
+      transition: 0.5s ease;
+    }
   }
 }
 

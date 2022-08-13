@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column justify-space-around">
-    <div class="div-f-container full-width p-relative d-flex">
+    <div class="div-f-container p-relative d-flex">
       <div
         class="
           div-f-container-text
@@ -35,27 +35,16 @@
         </div>
       </div>
       <div class="img-f-container rounded-lg"></div>
-      <!-- <img src="images/mobile/pictures/sunset3.jpg" class="me-photo rounded-lg" /> -->
     </div>
     <div class="text-m-h4 text-right ff-raleway text-uppercase">
       <p class="anim-scale-down-2">Кто я +</p>
       <p class="anim-scale-down-3 mt-n4">Что могу?</p>
-      <p class="anim-scale-down-3 mt-n4">Как делаю</p>
+      <p class="anim-scale-down-3 mt-n4">Иду вперед</p>
     </div>
   </div>
 </template>
 
-
-<script>
-export default {};
-</script>
-
-
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
-.ff-pd {
-  font-family: "Playfair Display", serif;
-}
 .div-f-container {
   min-height: 60vmin;
 
@@ -63,8 +52,7 @@ export default {};
     width: 50%;
   }
 
-  & .p-prof {
-    // font-family: "IBM Plex Mono", monospace;
+  .p-prof {
     font-weight: 500;
     text-transform: uppercase;
   }

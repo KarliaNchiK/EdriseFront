@@ -19,6 +19,17 @@
     }
 }
 
+@mixin my-theme-colors-i($step, $start){
+    @for $i from 1 through 6 {
+
+        &:nth-child(#{$i}) {
+            i{
+                color: hsl($start + $step * $i, 80%, 70%)
+            }
+        }
+    }
+}
+
 @mixin block-angel($size, $width, $color, $padding, $opacity: 1){
         padding: $padding;
         position: relative;

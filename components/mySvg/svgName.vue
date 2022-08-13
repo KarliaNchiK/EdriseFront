@@ -60,7 +60,7 @@
   stroke-width: 1;
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
-  animation: svg-name 2s linear 1 forwards;
+  animation: svg-name 1s linear 1 forwards;
 }
 
 @for $i from 1 through 14 {

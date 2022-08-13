@@ -6,7 +6,7 @@
     <p class="ff-ibm-medium text-m-h4 text-uppercase mt-n6 colorText--text">
       разработчик
     </p>
-    <block-images class="px-lg-16 mt-6 block-my-images" />
+    <block-images class="mt-6 block-my-images" />
     <div
       class="
         d-flex

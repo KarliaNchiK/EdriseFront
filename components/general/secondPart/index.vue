@@ -63,7 +63,7 @@ export default {
   computed: {
     activeBlock() {
       if (typeof window == "undefined") return 0;
-      return Math.round(this.left / (window.innerWidth * 0.894));
+      return Math.round(this.offsetX / (window.innerWidth * 0.894));
     },
     scrollY() {
       return this.$store.getters["data/scrollY"];
@@ -89,7 +89,7 @@ export default {
         top: sdvig,
         behavior: "smooth",
       });
-    }, 400),
+    }, 300),
 
     resize() {
       this.scrollWidth = window.innerWidth * 1.798;

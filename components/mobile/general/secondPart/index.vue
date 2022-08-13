@@ -1,5 +1,5 @@
 <template>
-  <div class="div-two p-relative pt-8">
+  <div class="div-two p-relative pt-8" id="secondPart">
     <card-block
       v-for="(block, n) in items"
       :key="block.title"
@@ -34,9 +34,10 @@ export default {
     this.items = secondPart;
   },
   mounted() {
-    this.$observer.observe(this.$el);
-    const block = document.querySelector("#secondPart2");
-    this.$observer.observe(block);
+    const blocks = document.querySelectorAll("#secondPart2, #secondPart1");
+    blocks.forEach(block => {
+      this.$observer.observe(block);
+    })
   },
 };
 </script>

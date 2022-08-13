@@ -100,15 +100,14 @@ export default {
     ScrollEvent() {
       let step = window.pageYOffset / window.innerHeight;
       this.opacity = this.startOpacity - step * this.stepOpacity;
-      this.cfg.scale = step;
-      let orbs = 50 - Math.round(40 * step),
+      this.cfg.scale = step * 2;
+      let orbs = 50 - Math.round(45 * step),
         sdvigOrbs = this.orbsList.length - orbs;
 
-      while (sdvigOrbs != 0) {
-        if (sdvigOrbs > 0) {
-          this.orbsList.pop();
-          sdvigOrbs--;
-        } else {
+      if (sdvigOrbs > 0) {
+        this.orbsList.splice(this.orbsList.length - sdvigOrbs - 1, sdvigOrbs);
+      } else {
+        while (sdvigOrbs != 0) {
           this.orbsList.push(new Orb(this.$data));
           sdvigOrbs++;
         }
@@ -147,8 +146,8 @@ export default {
     async createStartdust() {
       let bottom = 0;
       if (window.scrollY > window.innerHeight) {
-        bottom = 40;
-        this.cfg.scale = 1;
+        bottom = 45;
+        this.cfg.scale = 2;
         this.opacity = this.startOpacity - this.stepOpacity;
       }
       for (let i = 0; i < this.cfg.orbsCount - bottom; i++) {

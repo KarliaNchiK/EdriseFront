@@ -5,11 +5,12 @@
     </v-fade-transition>
     <v-fade-transition mode="out-in" v-if="!isMobil && needCanvas">
       <my-background-canvas
-        class="main-canvas"
+        class="main-canvas back-fixed"
         :alternate="canvasAlternate"
         ref="myCanvas"
       />
     </v-fade-transition>
+    <background-mobile class="back-fixed mobile-back" v-if="isMobil" />
     <v-main class="div-main-page colorBackground">
       <pcBlock class="appBar" @click="swTheme" v-if="!isMobil && load" />
       <mobileBlock class="appBar" v-else-if="load" />
@@ -29,6 +30,8 @@ export default {
     pcBlock: () => import("~/components/header/index.vue"),
     mobileBlock: () => import("~/components/mobile/header/index.vue"),
     myLoadPage,
+    backgroundMobile: () =>
+      import("~/components/mobile/background/background.vue"),
   },
   data: () => ({
     load: false,
@@ -66,7 +69,10 @@ export default {
           if (this.canvasAlternate) {
             this.$refs.myCanvas.ScrollEvent();
           }
-          if (this.blockThreeVisible == false) {
+          if (
+            this.blockThreeVisible == false &&
+            window.pageYOffset > window.innerHeight - 40
+          ) {
             this.$store.commit("data/set_scroll", window.pageYOffset);
           }
           this.scrollActive = false;
@@ -89,7 +95,6 @@ export default {
       window.addEventListener("resize", this.watchResize);
       window.addEventListener("scroll", this.scrollEvent, {
         passive: true,
-        capture: true,
       });
       this.watchResize();
     }
@@ -105,11 +110,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.back-fixed {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
 @media (max-width: 960px) {
-  .main-canvas {
-    position: fixed;
-    top: 0px;
-    left: 0px;
+  .mobile-back {
+    height: 100vh;
   }
   .div-main-page {
     padding: 0 8px !important;
@@ -119,9 +127,6 @@ export default {
   .main-canvas {
     z-index: 2;
     display: block;
-    position: fixed;
-    top: 0px;
-    left: 0px;
   }
   .div-main-page {
     padding: 0 5vw !important;

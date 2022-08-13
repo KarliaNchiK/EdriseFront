@@ -1,5 +1,5 @@
 <template>
-  <div class="div-three p-relative colorBackground" id="threePart">
+  <div class="div-three p-relative">
     <div class="div-three-sticky">
       <d-sticky />
     </div>
@@ -16,9 +16,6 @@ export default {
     dSticky: () => import("./blocks/dSticky/index.vue"),
     dAbs: () => import("./blocks/dAbs/index.vue"),
   },
-  mounted() {
-    this.$observer.observe(this.$el);
-  },
 };
 </script>
 
@@ -26,6 +23,8 @@ export default {
 .div-three {
   height: 285vh;
   z-index: 1;
+  width: 100vw !important;
+  left: -8px;
 
   & > .div-three-sticky {
     position: sticky;

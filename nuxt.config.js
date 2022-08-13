@@ -38,7 +38,7 @@ export default {
   },
 
   server: {
-    // host: "0.0.0.0",
+    host: process.env.NODE_ENV == 'development' ? "0.0.0.0" : "",
     port: 3000,
   },
 
@@ -54,7 +54,7 @@ export default {
     { src: "~/plugins/observer.js", ssr: false }
   ],
 
-  static:{
+  static: {
 
   },
 
@@ -68,12 +68,6 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-
-  axios: {
-    baseURL: process.env.NODE_ENV == 'development' ? 'http://192.168.1.67:3001/rest/' : 'http://83.69.106.6:3001/rest/',
-    credentials: true,
-    withCredentials: true,
-  },
 
   vuetify: {
     optionsPath: "~/plugins/option.vuetify.js"

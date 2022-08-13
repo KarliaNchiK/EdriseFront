@@ -1,8 +1,8 @@
 <template>
-  <div class="full-height div-t-m p-relative">
+  <div class="full-height div-t-m p-relative" id="threePart">
     <v-row no-gutters class="row-main-container">
       <v-col cols="3" class="d-flex justify-end pr-4 p-relative">
-        <div class="text-m-subtitle-1 div-t-f">
+        <div class="text-m-subtitle-1 div-t-f white--text">
           <p>2022</p>
           <p>Разработчик</p>
         </div>
@@ -62,6 +62,7 @@ export default {
   }),
   mounted() {
     this.icons = icons;
+    this.$observer.observe(this.$el);
   },
 };
 </script>

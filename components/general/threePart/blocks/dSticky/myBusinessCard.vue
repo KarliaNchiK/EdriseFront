@@ -10,15 +10,23 @@
     <div></div>
     <div class="d-flex flex-column justify-space-between text-right">
       <div class="text-m-h6">Фаттахов Айнур</div>
-      <div class="text-m-subtitle-1">
+      <div class="text-m-title-2">
         <p><strong>Б</strong>есплатная консультация</p>
         <p><strong>В</strong>заимовыгодные условия</p>
       </div>
-      <div class="text-m-subtitle-1">
-        <p><v-icon>mdi-phone-outline</v-icon> +7 9656 09 54 93</p>
-        <p>
-          <v-icon>mdi-email-arrow-right-outline</v-icon> karlianchik@gmail.com
-        </p>
+      <div class="text-m-subtitle-1 d-flex mb-n1 justify-end">
+        <div>
+          <p>
+            <v-icon>mdi-phone-outline</v-icon>
+          </p>
+          <p>
+            <v-icon>mdi-email-arrow-right-outline</v-icon>
+          </p>
+        </div>
+        <div>
+          <p>+7 9656 09 54 93</p>
+          <p>karlianchik@gmail.com</p>
+        </div>
       </div>
     </div>
   </div>
@@ -67,7 +75,7 @@ export default {
     width: 23.05vmax;
 
     i {
-      font-size: 1.8vmax;
+      // font-size: 1.2vmax;
       margin-right: 1vmax;
       color: var(--v-mainSecondColor-base);
     }

@@ -1,11 +1,7 @@
 <template>
-  <div class="div-first d-flex flex-column p-relative">
+  <div class="mb-8" id="firstPart">
     <block-images class="block-my-images" />
-    <div class="d-flex justify-center align-end black--text flex-grow-1 pb-8">
-      <div class="full-width">
-        <name-svg />
-      </div>
-    </div>
+    <name-svg />
   </div>
 </template>
 
@@ -16,13 +12,13 @@ export default {
     blockImages: () => import("./blockImgs.vue"),
     nameSvg: () => import("~/components/mySvg/svgName.vue"),
   },
+  mounted() {
+    this.$observer.observe(this.$el);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.div-first {
-  max-width: 100%;
-}
 .block-my-images {
   min-height: 80vh;
 }

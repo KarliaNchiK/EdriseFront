@@ -5,7 +5,12 @@ export default async function (context, inject) {
         let observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 // console.log(entry);
-                observeEntry(entry.target, entry.isIntersecting, context.store);
+                if (context.store.getters["device/mobile"]) {
+                    observeEntryMobile(entry.target, entry.isIntersecting, context.store);
+                }
+                else {
+                    observeEntryDesk(entry.target, entry.isIntersecting, context.store);
+                }
             });
         });
         resolve(observer)
@@ -18,7 +23,38 @@ export default async function (context, inject) {
     return
 }
 
-function observeEntry(target, visible, $store) {
+function observeEntryMobile(target, visible, $store) {
+    switch (target.id) {
+        case "firstPart":
+            if (visible) {
+                $store.commit("data/set_mobileMorph", 0);
+            }
+            break;
+        case "secondPart1":
+            if (visible) {
+                $store.commit("data/set_mobileMorph", 1);
+            }
+            break;
+        case "secondPart2":
+            if (visible) {
+                $store.commit("visible/set_visible", {
+                    block: 'renderThree',
+                    visible
+                });
+                linkObserver.unobserve(target);
+            }
+            break;
+
+        case "threePart":
+            if (visible) {
+                $store.commit("data/set_mobileMorph", 2);
+            }
+            break;
+    }
+    return
+}
+
+function observeEntryDesk(target, visible, $store) {
     switch (target.id) {
         case "firstPart":
             bv1 = visible
@@ -50,22 +86,14 @@ function observeEntry(target, visible, $store) {
                 visible
             });
             break;
-
-        // case "needSCroll":
-        //     if (visible) {
-        //         target.classList.add("scrolling")
-        //     }
-        //     else {
-        //         target.classList.remove("scrolling")
-        //     }
-        //     break;
-        // default:
-        //     if (visible) {
-        //         target.classList.add("start-anim")
-        //         linkObserver.unobserve(target);
-        //     }
-        //     break;
-
+        case "needAnim":
+            if(visible){
+                target.classList.add("active-anim")
+            }
+            else{
+                target.classList.remove("active-anim")
+            }
+            break;
     }
     return
 }

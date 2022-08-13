@@ -34,13 +34,13 @@ export default {
     width: 100%;
     height: 100vh;
     z-index: 1;
-    display: block;
   }
 
   & > .div-three-abs {
     top: 0;
-    left: 0;
-    width: 100%;
+    padding: 0 5vw;
+    left: -5.3vw;
+    width: 99.4vw;
     height: 100vh;
     z-index: 1;
   }
