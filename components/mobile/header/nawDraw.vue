@@ -93,9 +93,22 @@ export default {
     scrollPage(n) {
       this.$emit("dialogFalse");
       document.getElementById("secondPart" + n).scrollIntoView(true);
+      this.$router.push({
+        path: "/",
+        hash: "#secondPart" + n,
+      });
+    },
+    eHashchange(e) {
+      if (this.$route.hash == "") {
+        document.getElementById("mainContainer").scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
     },
   },
   mounted() {
+    window.addEventListener("hashchange", this.eHashchange);
     this.icons = icons;
     this.texts = appBarText.slice();
     this.texts[1] = "Образование";
