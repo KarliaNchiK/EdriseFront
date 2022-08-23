@@ -23,6 +23,14 @@ body::-webkit-scrollbar {
   background: var(--v-colorBackground-base);
 }
 
+.e-all{
+  pointer-events: all !important;
+}
+
+.e-none{
+  pointer-events: none !important;
+}
+
 // .page-enter-active, .page-leave-active{
 //     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1)
 // }

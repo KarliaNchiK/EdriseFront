@@ -8,7 +8,7 @@ export const diploms = [
     {
         name: "0.png",
         title: "Сертификат с отличием по нейромнным сетям",
-        info: "Пройден хороший курс от Samsung по нейронным сетям и компьютерному зрению. Получены навыки работы с PyTorch. Изучены математические основы, структура нейронных сетей. Научился самостоятельно подготавливать датасет, писать свои нейронные сети на собственной архитектуре и при использовании готовых.",
+        info: "Пройден хороший курс от Samsung по нейронным сетям и компьютерному зрению. Получены навыки работы с Pycomprch. Изучены математические основы, структура нейронных сетей. Научился самостоятельно подготавливать датасет, писать свои нейронные сети на собственной архитектуре и при использовании готовых.",
 
     },
     {
@@ -148,7 +148,7 @@ export const technology = [
                 color: "purple",
             },
             {
-                title: "Cookies/localStorage",
+                title: "Cookies/localScomprage",
                 icon: "cookie",
                 color: "blue",
             },
@@ -302,7 +302,7 @@ export const aboutMe = [
     {
         icon: "fa-solid fa-chalkboard-user",
         title: "Чему научился сам",
-        text: "С 8 класса начал изучать программирование. Первым языком был С++. В 9 классе написал на нём пару программ для автоаматизации своих бытовых задач. С 11 класса начал изучать веб программирование. На текущий момент хорошо знаю и практикую несколько фреймоврков для FrontEnd'а и BackEnd'a. Могу написать нейросеть на pyTorch. ",
+        text: "С 8 класса начал изучать программирование. Первым языком был С++. В 9 классе написал на нём пару программ для автоаматизации своих бытовых задач. С 11 класса начал изучать веб программирование. На текущий момент хорошо знаю и практикую несколько фреймоврков для FrontEnd'а и BackEnd'a. Могу написать нейросеть на pycomprch. ",
         img: "images/experience/self.jpg",
         imgGrey: "images/experience/selfGrey.jpg",
         subtitle: 'Я слышу и забываю. Я вижу и запоминаю. Я делаю и понимаю. © "Конфуций'
@@ -374,44 +374,293 @@ export const secondPart = [
 
 export const imgs = [
     {
-      src: "stay",
-      color: "rgba(164, 160, 160, 0.2)",
+        src: "stay",
+        color: "rgba(164, 160, 160, 0.2)",
     },
     {
-      src: "zont",
-      color: "rgba(52, 80, 128, 0.2)",
+        src: "zont",
+        color: "rgba(52, 80, 128, 0.2)",
     },
     {
-      src: "eye",
-      color: "rgba(133, 136, 143, 0.2)",
+        src: "eye",
+        color: "rgba(133, 136, 143, 0.2)",
     },
     {
-      src: "moon",
-      color: "rgba(99, 93, 95, 0.2)",
+        src: "moon",
+        color: "rgba(99, 93, 95, 0.2)",
     },
     {
-      src: "sit",
-      color: "rgba(120, 118, 155, 0.2)",
+        src: "sit",
+        color: "rgba(120, 118, 155, 0.2)",
     },
-  ];
+];
 
-  export const educs = [
+export const educs = [
     {
-      name: "Казанский Государственный Энергетический Университет",
-      imgSrc: "images/pc/pictures/kgeu",
-      dateEnd: "2021",
-      qual: "Бакалавр",
-      colorDip: "Красный",
-      programm: "Прикладная математика",
-      way: "Математическое и программное обеспечение систем обработки информации и управления",
+        name: "Казанский Государственный Энергетический Университет",
+        imgSrc: "images/pc/pictures/kgeu",
+        dateEnd: "2021",
+        qual: "Бакалавр",
+        colorDip: "Красный",
+        programm: "Прикладная математика",
+        way: "Математическое и программное обеспечение систем обработки информации и управления",
     },
     {
-      name: "Казанский национальный исследовательский технический университет им. А.Н. Туполева",
-      imgSrc: "images/pc/pictures/kai",
-      dateEnd: "2023",
-      qual: "Магистр",
-      colorDip: "Синий",
-      programm: "Информатика и вычислительная техника",
-      way: "Разработка и администрирование информационных систем",
+        name: "Казанский национальный исследовательский технический университет им. А.Н. Туполева",
+        imgSrc: "images/pc/pictures/kai",
+        dateEnd: "2023",
+        qual: "Магистр",
+        colorDip: "Синий",
+        programm: "Информатика и вычислительная техника",
+        way: "Разработка и администрирование информационных систем",
+    },
+];
+
+export const allProjects = [
+    {
+        divider: true,
+        label: "Общие компоненты"
+    },
+    {
+        icon: "mdi-image-album",
+        comp: "album",
+        title: "Фотоальбом",
+        info: "Фотоальбом учитывающий высоту фотографий",
+    },
+    {
+        icon: "mdi-chat-outline",
+        comp: "chat",
+        title: "Чат",
+        info: "Страница чата",
+    },
+    {
+        icon: "mdi-clipboard-account-outline",
+        comp: "plans",
+        title: "Доска планирования",
+        info: "Доска для расставления планов",
+    },
+    {
+        icon: "mdi-clipboard-check-multiple-outline",
+        comp: "ads",
+        title: "Доска объявлений",
+        info: "Размещене объявлений проектов",
+    },
+
+    {
+        divider: true,
+        label: "Десктопные компоненты"
+    },
+
+    {
+        icon: "mdi-chart-gantt",
+        comp: "gant",
+        title: "Диаграмма Ганта",
+        info: "Реализация диаграммы Ганта",
+    },
+    {
+        icon: "mdi-apple-keyboard-caps",
+        comp: "motiv",
+        title: "Мотивация",
+        info: "Блок для мотивации",
+    },
+
+    {
+        icon: "mdi-information-outline",
+        comp: "infoBlock",
+        title: "Инфо блок",
+        info: "Интересный блок передачи информации",
+    },
+
+    {
+        divider: true,
+        label: "Мобильные компоненты"
+    },
+
+    {
+        icon: "mdi-image-multiple-outline",
+        comp: "imageTransition",
+        title: "Проявление изображений",
+        info: "Блок анимации смены фокуса по картинкам",
+    },
+];
+
+export const projectImgs = [
+    "https://sun7-8.userapi.com/impg/brqX2wKGisf--Iy4MWkj7hUk5soTCtJ5qEirEw/fqd_HEVwTCY.jpg?size=564x821&quality=96&sign=385f2f5e47b8702db871c921928e729d&type=album",
+    "https://sun7-14.userapi.com/impg/9_m6g28kUlX9Xwm2gsFkDbFy7GnYs1qebcGZhg/BAiu3AuN6eg.jpg?size=564x817&quality=96&sign=2f118f08261e80274422af30904814f1&type=album",
+    "https://i.pinimg.com/736x/c7/67/92/c76792ae3a691369e0551f94fcf7b976--deco-orange-orange-kitchen.jpg",
+    "https://c4.wallpaperflare.com/wallpaper/506/580/1000/abstract-black-branch-bright-dark-mist-gold-lights-nature-night-old-orange-silhouette-trees-yellow-sun-wallpaper-preview.jpg",
+    "https://i.pinimg.com/736x/03/69/01/03690165fd0074c74d77f0842a76095a--chocolate-brown-amazing-nature.jpg",
+    "https://i.pinimg.com/736x/81/ea/d7/81ead7aced0487f3ee7cbb3b69325efa--gold-rush-scotland.jpg",
+    "https://c4.wallpaperflare.com/wallpaper/373/26/372/beautiful-dark-sunset-wallpaper-preview.jpg",
+    "https://images.unsplash.com/photo-1611335022699-e4a692aeefdb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGRhcmslMjBuYXR1cmV8ZW58MHx8MHx8&w=1000&q=80",
+    "https://i.pinimg.com/originals/c5/c7/bb/c5c7bb17ac61bbc5eafb3c9ecbdb2637.jpg",
+    "https://i.pinimg.com/550x/1b/22/17/1b2217a88333ff31e29e0ba4e0038cb0.jpg",
+];
+
+export const messages = [
+    {
+        type: "adt",
+        date: "12 июля",
+        idUser: "1",
+        text: "Начал диалог",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:45",
+        idUser: "1",
+        text: "Привет!",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:48",
+        idUser: "2",
+        text: "О, привет",
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:48",
+        idUser: "2",
+        text: "Я очень люблю стихи, вот тебе один из хороших. Можно сказать моё любимое",
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:49",
+        idUser: "2",
+        text: `В этот лес завороженный,
+        По пушинкам серебра,
+        Я с винтовкой заряженной
+        На охоту шел вчера.
+        По дорожке чистой, гладкой
+        Я прошел, не наследил…
+        Кто ж катался здесь украдкой?
+        Кто здесь падал и ходил?
+        Подойду, взгляну поближе:
+        Хрупкий снег изломан весь.
+        Здесь вот когти, дальше — лыжи…
+        Кто-то странный бегал здесь.
+        Кабы твердо знал я тайну
+        Заколдованным речам,
+        Я узнал бы хоть случайно,
+        Кто здесь бродит по ночам.
+        Из-за елки бы высокой
+        Подсмотрел я на кругу:
+        Кто глубокий след далекий
+        Оставляет на снегу?`,
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:51",
+        idUser: "1",
+        text: "Хороший стих",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:52",
+        idUser: "2",
+        text: "Спасибо что читаете данный диалог",
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:53",
+        idUser: "1",
+        text: "ОООО, это точно",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:54",
+        idUser: "1",
+        text: "Только хорошие люди могут прочесть этот текст",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:55",
+        idUser: "1",
+        text: "Мы с вами обязательно сработаемся",
+        fio: "Фаттахов Айнур",
+    },
+    {
+        type: "message",
+        date: "12:56",
+        idUser: "2",
+        text: "Обязательно",
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:57",
+        idUser: "2",
+        text: "Минутка интересных фактов",
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:58",
+        idUser: "2",
+        text: `На нашей коже может жить больше живых организмов, чем людей на всей планете.
+        `,
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:58",
+        idUser: "2",
+        text: `Три самые богатые семьи в мире имеют больше активов, чем 48 беднейших стран.На нашей коже может жить больше живых организмов, чем людей на всей планете.`,
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:58",
+        idUser: "2",
+        text: `В современной истории есть промежуток времени, когда на счетах компании «Apple», было больше средств, чем у американского правительства.`,
+        fio: "Горбунов Даниил",
+    },
+    {
+        type: "message",
+        date: "12:58",
+        idUser: "2",
+        text: `Изначально, отвертка была изобретена для выковыривания гвоздей, шуруп был изобретен на 100 лет позже.`,
+        fio: "Горбунов Даниил",
+    },
+];
+
+export const threePartBlock = [
+    {
+      to: "album",
+      title: "Фотоальбом",
+      info: "Фотоальбом учитывающий высоту фотографий",
+      img: "images/ss/album.png",
+    },
+    {
+      to: "chat",
+      title: "Чат",
+      info: "Страница чата",
+      img: "images/ss/chat.png",
+    },
+    {
+      to: "plans",
+      title: "Планирование",
+      info: "Доска для расставления планов",
+      img: "images/ss/plans.png",
+    },
+    {
+      to: "gant",
+      title: "Гант",
+      info: "Реализация диаграммы Ганта",
+      img: "images/ss/gant.png",
+    },
+    {
+      to: "ads",
+      title: "Объявления",
+      info: "Размещене объявлений проектов",
+      img: "images/ss/projects.png",
     },
   ];

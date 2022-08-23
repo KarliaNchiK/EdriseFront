@@ -3,7 +3,7 @@
     <v-col cols="3" class="d-flex justify-end pr-16 pt-16">
       <div class="full-height d-flex flex-column justify-end full-width">
         <div class="vis-card p-relative" @click="dialog = true">
-          <circle-text-svg class="svg-c-t" classText="svg-visbut-text">
+          <circle-text-svg classText="svg-visbut-text">
             <template v-slot:text> Связь -- Связь -- Связь -- </template>
             <template v-slot:icon>
               <v-icon class="i-b-c">mdi-phone-plus</v-icon>
@@ -82,14 +82,13 @@
 
 <script>
 import testSvg from "./testSvg.vue";
-import myBusinessCard from "./myBusinessCard.vue";
 import { icons } from "~/plugins/const.js";
 import circleTextSvg from "~/components/mySvg/circleTextSvg.vue";
 
 export default {
   components: {
     testSvg,
-    myBusinessCard,
+    myBusinessCard: () => import("~/components/ui/myBusinessCard.vue"),
     circleTextSvg,
   },
   data: () => ({
@@ -115,14 +114,6 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.svg-visbut-text {
-  font-size: 0.58em;
-  letter-spacing: 3px;
-  fill: var(--v-mainFirstColor-base) !important;
-}
-</style>
 
 <style scoped lang="scss">
 .i-b-c {

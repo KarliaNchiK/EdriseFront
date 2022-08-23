@@ -65,7 +65,7 @@
 
   & > .img-f-container {
     width: 50%;
-    background-image: url("http://edrise.ru/images/mobile/pictures/sunset3.jpg");
+    // background-image: url("http://edrise.ru/images/mobile/pictures/sunset3.jpg");
     background-size: cover;
     background-position: 75% center;
     box-shadow: inset 0 0 12px 2px var(--v-colorBackground-base);

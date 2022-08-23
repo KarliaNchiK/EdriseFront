@@ -1,5 +1,15 @@
 <template>
-  <div class="p-relative row-comps rounded-xl">
+  <div
+    class="p-relative row-comps rounded-xl"
+    @click="
+      $router.push({
+        path: '/project',
+        query: {
+          comp: to,
+        },
+      })
+    "
+  >
     <div class="d-flex">
       <p class="text-m-title-1 white--text pt-1 p-vertical">
         {{ title }}
@@ -18,7 +28,7 @@
 
 <script>
 export default {
-  props: ["title", "img", "info"],
+  props: ["info", "title", "img", "to"],
 };
 </script>
 

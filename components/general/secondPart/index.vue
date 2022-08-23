@@ -5,6 +5,18 @@
       ref="divTwo"
       :style="{ transform: `translateX(-${offsetX}px)` }"
     >
+      <div
+        class="switch-dots p-absolute d-flex justify-center full-width"
+        :style="{ transform: `translateX(${offsetX}px)` }"
+      >
+        <span
+          v-for="(n, i) in 3"
+          :key="'dot_' + n"
+          :class="{ 'active-dot': i == activeBlock }"
+          class="c-pointer"
+          @click="changeActive(i)"
+        ></span>
+      </div>
       <card-block
         v-for="(block, n) in items"
         :key="block.title"
@@ -25,8 +37,6 @@ import cardBlock from "./cardBlock.vue";
 import technology from "./technology/technology.vue";
 import education from "./education/education.vue";
 import experience from "./experience/experience.vue";
-
-import { debounce } from "vue-debounce";
 export default {
   props: ["visible", "top", "bottom", "end"],
   components: {
@@ -36,8 +46,8 @@ export default {
     experience,
   },
   data: () => ({
-    left: 0,
     scrollWidth: 0,
+    scrollActive: false,
     items: [
       {
         title: "Технологии",
@@ -58,44 +68,65 @@ export default {
         comp: "experience",
       },
     ],
+    activeBlock: 0,
   }),
 
   computed: {
-    activeBlock() {
-      if (typeof window == "undefined") return 0;
-      return Math.round(this.offsetX / (window.innerWidth * 0.894));
-    },
-    scrollY() {
-      return this.$store.getters["data/scrollY"];
-    },
     offsetX() {
-      if (typeof window == "undefined") return 0;
-      this.left = this.scrollY - window.innerHeight;
-      if (this.left < 0) return 0;
-      else if (this.left > this.scrollWidth) {
-        this.left = this.scrollWidth;
+      if (typeof window == "undefined" || this.top) return 0;
+      if (this.bottom) {
+        return this.scrollWidth;
       }
-      this.debounceInput(this);
-      return this.left;
+
+      return window.innerWidth * 0.894 * this.activeBlock;
     },
   },
 
   methods: {
-    debounceInput: debounce((t) => {
-      if (t.top || t.bottom) return;
-      let sdvig =
-        window.innerWidth * 0.894 * t.activeBlock + window.innerHeight;
+    scrollY(e) {
+      if (this.scrollActive) {
+        e.preventDefault();
+      } else if (
+        !this.scrollActive &&
+        window.scrollY >= window.innerHeight &&
+        window.scrollY <= window.innerHeight * 3.5
+      ) {
+        let i = null;
+        if (window.scrollY < window.innerHeight * 1.5) {
+          i = 0;
+        } else if (window.scrollY < window.innerHeight * 2.5) {
+          i = 1;
+        } else if (window.scrollY < window.innerHeight * 3.5) {
+          i = 2;
+        }
+        if (i != this.activeBlock) {
+          this.changeActive(i);
+        }
+      }
+    },
+    changeActive(i) {
+      this.scrollActive = true;
+      let k = 1;
+      if (i < this.activeBlock) k += 0.5;
+      this.activeBlock = i;
+      let offsetY = (this.activeBlock + k) * window.innerHeight;
       window.scrollTo({
-        top: sdvig,
-        behavior: "smooth",
+        top: offsetY,
+        behavior: "instant",
       });
-    }, 300),
-
+      setTimeout(() => {
+        this.scrollActive = false;
+      }, 500);
+      return;
+    },
     resize() {
       this.scrollWidth = window.innerWidth * 1.798;
     },
   },
   mounted() {
+    window.addEventListener("scroll", this.scrollY, {
+      capture: true,
+    });
     window.addEventListener("resize", this.resize);
     this.resize();
     this.$observer.observe(this.$el);
@@ -110,12 +141,51 @@ export default {
 
 <style lang="scss" scoped>
 .div-two {
-  height: calc(179.8vw + 100vh);
+  height: 350vh;
+
+  .switch-dots {
+    margin-top: 32px;
+    z-index: 6;
+    span {
+      width: 1vw;
+      height: 1vw;
+      border-radius: 50%;
+      background-color: var(--v-mainSecondColor-base);
+      margin-right: 8px;
+      transition: all 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0.7vw;
+        height: 0.7vw;
+        background: var(--v-colorBackground-base);
+        border-radius: 50%;
+        transition: opacity 0.4s ease;
+        opacity: 0;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 0.7;
+        }
+      }
+    }
+    .active-dot {
+      transform: scale(1.5);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
   & > .div-cards-content {
-    transition: transform 100ms linear;
+    transition: transform 0.5s ease;
     will-change: transform;
     height: 100vh;
-    max-height: 100vh;
     position: sticky;
     top: 0px;
     left: 0px;

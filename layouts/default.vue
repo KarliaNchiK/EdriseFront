@@ -11,7 +11,7 @@
       />
     </v-fade-transition>
     <background-mobile class="back-fixed mobile-back" v-if="isMobil" />
-    <v-main class="div-main-page colorBackground">
+    <v-main class="div-main-page colorBackground" id="mainContainer">
       <pcBlock class="appBar" @click="swTheme" v-if="!isMobil && load" />
       <mobileBlock class="appBar" v-else-if="load" />
 
@@ -35,7 +35,6 @@ export default {
   },
   data: () => ({
     load: false,
-    scrollActive: false,
   }),
   computed: {
     canvasAlternate() {
@@ -62,21 +61,15 @@ export default {
         this.$store.commit("device/set_resize", false);
       }
     },
-    scrollEvent() {
-      if (this.scrollActive == false) {
-        this.scrollActive = true;
-        setTimeout(() => {
-          if (this.canvasAlternate) {
-            this.$refs.myCanvas.ScrollEvent();
-          }
-          if (
-            this.blockThreeVisible == false &&
-            window.pageYOffset > window.innerHeight - 40
-          ) {
-            this.$store.commit("data/set_scroll", window.pageYOffset);
-          }
-          this.scrollActive = false;
-        }, 25);
+    scrollEvent(e) {
+      if (this.needCanvas && this.canvasAlternate) {
+        this.$refs.myCanvas.ScrollEvent();
+      }
+      if (
+        this.blockThreeVisible == false &&
+        window.scrollY > window.innerHeight - 40
+      ) {
+        this.$store.commit("data/set_scroll", window.scrollY);
       }
     },
     mMove(e) {
@@ -93,9 +86,7 @@ export default {
     if (this.isMobil == false) {
       window.addEventListener("mousemove", this.mMove);
       window.addEventListener("resize", this.watchResize);
-      window.addEventListener("scroll", this.scrollEvent, {
-        passive: true,
-      });
+      window.addEventListener("scroll", this.scrollEvent);
       this.watchResize();
     }
     setTimeout(() => {
@@ -121,6 +112,8 @@ export default {
   }
   .div-main-page {
     padding: 0 8px !important;
+    overflow-y: auto;
+    height: 100vh;
   }
 }
 @media (min-width: 960px) {

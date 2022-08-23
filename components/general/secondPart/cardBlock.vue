@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column py-8">
-    <p class="text-m-title-1 font-weight-medium colorText--text">
+    <p class="text-m-title-1 font-weight-medium colorText--text e-none">
       {{ title }}
     </p>
     <div class="d-flex flex-grow-1 mt-6">

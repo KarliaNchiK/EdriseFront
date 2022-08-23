@@ -15,43 +15,16 @@
 
 <script>
 import blockProject from "./blockProject.vue";
+import { threePartBlock } from "~/plugins/const.js";
 export default {
   components: { blockProject },
   props: ["visible"],
   data: () => ({
-    blocks: [
-      {
-        title: "Альбом",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/album.png",
-      },
-      {
-        title: "Чат",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/chat.png",
-      },
-      {
-        title: "Планы",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/plans.png",
-      },
-      {
-        title: "Гант",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/gant.png",
-      },
-      {
-        title: "Объявления",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/projects.png",
-      },
-    ],
+    blocks: [],
   }),
+    created() {
+    this.blocks = threePartBlock;
+  },
 };
 </script>
 

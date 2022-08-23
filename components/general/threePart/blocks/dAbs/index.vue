@@ -1,96 +1,42 @@
 <template>
   <div class="p-relative overflow-hidden full-height">
-    <v-fade-transition mode="out-in">
-      <my-cursor v-if="visible" v-show="enter" />
-    </v-fade-transition>
-    <div class="div-m-c full-height d-flex flex-column">
-      <p class="text-h4">Примеры разработанных страниц и инструментов</p>
-      <div class="div-container-m-c flex-grow-1" ref="divMain">
-        <card-project
-          v-for="block in blocks"
-          :key="block.title"
-          v-bind="block"
-          :visible="visible"
-          class="mb-4"
-        ></card-project>
-      </div>
+    <div
+      class="div-m-c d-flex flex-column justify-space-around p-relative"
+      ref="divMain"
+    >
+      <img
+        src="images/pc/tp/image.png"
+        alt=""
+        class="p-absolute full-size z-5 e-none"
+      />
+      <img
+        src="images/pc/tp/triangle.png"
+        alt=""
+        class="p-absolute full-size z-5 e-none"
+      />
+      <card-project
+        class="card-project"
+        v-for="block in blocks"
+        :key="block.title"
+        v-bind="block"
+      ></card-project>
     </div>
   </div>
 </template>
 
 <script>
 import cardProject from "./cardProject.vue";
+import { threePartBlock } from "~/plugins/const.js";
 export default {
   props: ["visible"],
   components: {
     cardProject,
-    myCursor: () => import("./myCursor.vue"),
   },
   data: () => ({
-    blocks: [
-      {
-        title: "Фотоальбом",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/album.png",
-      },
-      {
-        title: "Чат",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/chat.png",
-      },
-      {
-        title: "Доска планирования",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/plans.png",
-      },
-      {
-        title: "Диаграмма Ганта",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/gant.png",
-      },
-      {
-        title: "Доска объявлений",
-        link: "",
-        info: "Интересный фотоальбом",
-        img: "images/ss/projects.png",
-      },
-    ],
-    enter: false,
+    blocks: [],
   }),
-  watch: {
-    visible() {
-      if (this.visible) {
-        this.setListener();
-        return;
-      }
-      this.clearListener();
-    },
-  },
-  methods: {
-    setListener() {
-      this.$refs.divMain.addEventListener("mouseenter", this.mEnter);
-      this.$refs.divMain.addEventListener("mouseleave", this.mLeave);
-    },
-    clearListener() {
-      this.$refs.divMain.removeEventListener("mouseenter", this.mEnter);
-      this.$refs.divMain.removeEventListener("mouseleave", this.mLeave);
-    },
-    mEnter() {
-      this.enter = true;
-    },
-    mLeave() {
-      this.enter = false;
-    },
-  },
-  mounted() {
-    this.setListener();
-  },
-  beforeDestroy() {
-    this.clearListener();
+  created() {
+    this.blocks = threePartBlock;
   },
 };
 </script>
@@ -98,13 +44,12 @@ export default {
 
 <style lang="scss" scoped>
 .div-m-c {
-  margin-top: 5vh;
-  padding: 0 5vw 0 5vw;
+  height: 100vh;
 
-  & > .div-container-m-c {
-    cursor: none;
-    margin-top: 5vh;
-    padding-bottom: 10%;
+  @for $i from 3 through 7 {
+    & > .card-project:nth-child(#{$i}) {
+      transform: translateX(150% - 23% * (5 - $i) * (5 - $i));
+    }
   }
 }
 </style>

@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$size: calc(6vh);
+$size: 5vh;
 .div-point {
   will-change: transform;
   opacity: 0.9;

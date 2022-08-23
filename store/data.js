@@ -2,7 +2,8 @@ export const state = () => ({
     scrollY: 0,
     x: 0,
     y: 0,
-    mobileMorph: 0
+    mobileMorph: 0,
+    canDown: false,
 })
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
     },
     set_mobileMorph(state, position) {
         state.mobileMorph = position
+    },
+    set_canDown(state, set){
+        state.canDown = set
     }
 }
 
@@ -26,5 +30,6 @@ export const getters = {
     scrollY: s => s.scrollY,
     x: s => s.x,
     y: s => s.y,
-    morph: s => s.mobileMorph
+    morph: s => s.mobileMorph,
+    canDown: s => s.canDown
 }

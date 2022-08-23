@@ -1,12 +1,15 @@
 <template>
-  <div class="d-flex flex-wrap p-relative">
+  <div class="d-flex flex-wrap p-relative images-container">
     <div
       class="div-img-container d-block p-relative pa-1"
       v-for="(img, n) in imgs"
       :key="img.src"
     >
       <img
-        :class="[`triangle-${n}`, { 'active-container': n == active || n == active2 }]"
+        :class="[
+          `triangle-${n}`,
+          { 'active-container': n == active || n == active2 },
+        ]"
         :src="'images/' + lowSize + '/pictures/' + img.src + '.jpg'"
         alt=""
         class="full-size elevation-3"
@@ -44,7 +47,7 @@ export default {
   },
   created() {
     this.imgs = imgs;
-    this.imgs.splice(5, 0, {
+    this.imgs.splice(5, 1, {
       src: "sunset",
       color: "#fff",
     });
@@ -83,8 +86,15 @@ export default {
 
   & > img {
     transition: transform 0.5s, clip-path 0.5s;
-    //   mask-image: radial-gradient(#fff 60%, transparent);
     object-fit: cover;
+  }
+}
+.images-container {
+  height: 100vh;
+}
+@media (min-width: 960px) {
+  .images-container {
+    width: 50%;
   }
 }
 </style>

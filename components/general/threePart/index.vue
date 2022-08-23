@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .div-three {
-  min-height: 200vh;
+  min-height: 205vh;
   z-index: 1;
 
   & > .div-three-sticky {
@@ -38,10 +38,10 @@ export default {
 
   & > .div-three-abs {
     top: 0;
-    padding: 0 5vw;
-    left: -5.3vw;
-    width: 99.4vw;
-    height: 100vh;
+    left: -5vw;
+    padding: 2.5vh 0;
+    width: 100vw;
+    height: 105vh;
     z-index: 1;
   }
 }

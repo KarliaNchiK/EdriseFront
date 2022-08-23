@@ -37,9 +37,10 @@ export default {
       this.$emit("click");
     },
     goToId(n) {
+      console.log(window.innerHeight * (n + 1))
       window.scrollTo({
-        top: window.innerHeight + window.innerWidth * 0.894 * n,
-        behavior: "smooth",
+        top: window.innerHeight * (n + 1),
+        behavior: "instant",
       });
     },
   },
