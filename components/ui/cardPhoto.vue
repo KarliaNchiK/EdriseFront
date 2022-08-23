@@ -32,15 +32,13 @@
           flex-shrink-1
         "
       >
-        <component :is="transition" mode="out-in">
-          <img
-            ref="img"
-            :key="img.name"
-            :src="`${path + img.name}`"
-            class="img-card-photo p-absolute"
-            @load="sizeSave"
-          />
-        </component>
+        <img
+          ref="img"
+          :key="img.name"
+          :src="`${path + img.name}`"
+          class="img-card-photo p-absolute"
+          @load="sizeSave"
+        />
       </div>
     </div>
     <div

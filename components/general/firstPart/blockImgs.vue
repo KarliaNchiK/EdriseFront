@@ -59,7 +59,7 @@ export default {
       z-index: 8;
       & > img {
         transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px)
-          scale(1.1);
+          scale(1.3);
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
       }
     }
