@@ -20,21 +20,22 @@ export default {
 
 <style lang="scss" scoped>
 .page-container {
-  min-height: 100vh;
-
   .naw-draw {
     position: sticky;
     top: 0;
-    height: 100vh;
   }
 }
 
 @media (min-width: 960px) {
-  .naw-draw {
-    width: 20%;
-  }
-  .main-container {
-    width: 60%;
+  .page-container {
+    min-height: 100vh;
+    .naw-draw {
+      width: 20%;
+      height: 100vh;
+    }
+    .main-container {
+      width: 60%;
+    }
   }
 }
 @media (max-width: 960px) {
@@ -42,6 +43,7 @@ export default {
     .naw-draw {
       width: 5%;
       z-index: 800;
+      height: 95vh;
     }
     .main-container {
       width: 95%;

@@ -93,10 +93,8 @@ export default {
 
 <style scoped lang="scss">
 .chat-page {
-  height: 100%;
 
   .row {
-    height: 100%;
     $colorBorder: rgba(128, 128, 128, 0.301);
 
     .chat-top {

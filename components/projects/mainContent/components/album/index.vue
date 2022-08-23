@@ -37,7 +37,7 @@ export default {
   },
   data: () => ({
     photos: [],
-    imgs: [[], [], []],
+    imgs: [],
     heightImg: [0, 0, 0],
     active: false,
     mount: false,
@@ -46,6 +46,9 @@ export default {
   computed: {
     blockWidth() {
       return this.$refs.block[0].clientWidth - 24;
+    },
+    isMobile() {
+      return this.$store.getters["device/mobile"];
     },
   },
   methods: {
@@ -65,7 +68,7 @@ export default {
     minH() {
       var min = this.heightImg[0],
         ind = 0;
-      for (let a = 1; a < 3; a++) {
+      for (let a = 1; a < this.imgs.length; a++) {
         if (this.heightImg[a] < min) {
           min = this.heightImg[a];
           ind = a;
@@ -96,15 +99,13 @@ export default {
     this.initPhoto();
   },
   created() {
+    this.imgs = this.isMobile ? [[], []] : [[], [], []];
     this.photos = projectImgs;
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.column-album {
-  width: calc(100% / 3);
-}
 .album-img {
   transition: all 0.5s ease;
   object-fit: cover;
@@ -112,5 +113,17 @@ export default {
 }
 .alternate-view {
   height: var(--height) !important;
+}
+
+@media (min-width: 960px) {
+  .column-album {
+    width: calc(100% / 3);
+  }
+}
+
+@media (max-width: 960px) {
+  .column-album {
+    width: 50%;
+  }
 }
 </style>

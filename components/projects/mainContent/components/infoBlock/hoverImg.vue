@@ -52,7 +52,7 @@
       </div>
 
       <div class="d-flex flex-column full-height info-card-content-action">
-        <div class="d-flex">
+        <div class="d-flex justify-space-between">
           <v-btn
             @click.stop="$emit('move', -1)"
             dark
@@ -62,7 +62,6 @@
           >
             Назад</v-btn
           >
-          <v-spacer></v-spacer>
           <v-btn
             @click.stop="$emit('move', 1)"
             dark
@@ -108,7 +107,6 @@ export default {
       }
     }
     .info-card-content-action {
-      padding: 24px;
       width: 50%;
     }
   }
@@ -183,5 +181,13 @@ export default {
   z-index: 3;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+@media (min-width: 960px) {
+  .info-card-content-action {
+    padding: 24px;
+  }
+}
+@media (max-width: 960px) {
 }
 </style>
