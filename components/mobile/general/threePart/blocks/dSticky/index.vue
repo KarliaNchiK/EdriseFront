@@ -19,7 +19,7 @@
         </div>
       </v-col>
     </v-row>
-    <div class="row-contact-details d-flex flex-column justify-end">
+    <div class="row-contact-details d-flex flex-column justify-end px-2">
       <div class="text-m-subtitle-1 d-flex">
         <p class="p-r">- Хотите поработать вместе?</p>
       </div>

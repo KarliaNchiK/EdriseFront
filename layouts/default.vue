@@ -11,7 +11,7 @@
       />
     </v-fade-transition>
     <background-mobile class="back-fixed mobile-back" v-if="isMobil" />
-    <v-main class="div-main-page colorBackground" id="mainContainer">
+    <v-main class="div-main-page colorBackground scroll-hidden" id="mainContainer">
       <pcBlock class="appBar" @click="swTheme" v-if="!isMobil && load" />
       <mobileBlock class="appBar" v-else-if="load" />
 

@@ -11,12 +11,17 @@
       <div class="d-flex justify-space-around mt-4">
         <div v-for="block in blocks" :key="block.name" class="column-docs">
           <div
-            @click="activePhoto(item.name)"
+            @touchstart.stop="activePhoto(item.name)"
             v-for="(item, n) in block"
             :key="n"
             class="p-relative elevation-4 div-doc d-flex"
+            :class="{ 'active-img': item.name == name }"
           >
-            <img :src="`images/lowSizeDocs/${item.name}`" alt="" class="img-docs" />
+            <img
+              :src="`images/lowSizeDocs/${item.name}`"
+              alt=""
+              class="img-docs"
+            />
           </div>
         </div>
       </div>
@@ -44,6 +49,7 @@ export default {
     blocks: [[], []],
     diplom: false,
     n: null,
+    name: "",
     educs: [],
     diploms: [],
     heightImg: [0, 0],
@@ -52,6 +58,7 @@ export default {
   methods: {
     activePhoto(name) {
       this.n = this.diploms.findIndex((x) => x.name == name);
+      this.name = name;
       this.diplom = true;
     },
     async loadImg(img) {
@@ -73,7 +80,9 @@ export default {
       for (let img of this.diploms) {
         min = this.heightImg[0] < this.heightImg[1] ? 0 : 1;
         this.blocks[min].push(img);
-        this.heightImg[min] += await this.loadImg(`images/lowSizeDocs/${img.name}`);
+        this.heightImg[min] += await this.loadImg(
+          `images/lowSizeDocs/${img.name}`
+        );
       }
     },
   },
@@ -92,9 +101,29 @@ export default {
   & .column-docs {
     width: 45%;
 
+    .active-img {
+      & > .img-docs {
+        box-shadow: 0px 0px 5px var(--v-mainFirstColor-base);
+        position: relative;
+      }
+
+      &:before {
+        content: "\F0046";
+        font: normal normal normal 24px/1 "Material Design Icons";
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 12px);
+        z-index: 6;
+        color: rgb(255, 51, 51);
+        filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.4));
+        animation: fab 0.5s linear infinite alternate forwards;
+      }
+    }
+
     & > .div-doc {
       margin-bottom: 5vmin;
-      & > img {
+
+      & > .img-docs {
         max-height: 100%;
         max-width: 100%;
         object-fit: cover;
@@ -110,6 +139,15 @@ export default {
     max-height: 48vh;
     max-width: 100%;
     object-fit: contain;
+  }
+}
+
+@keyframes fab {
+  from {
+    transform: scale(1.3) translateY(-20%);
+  }
+  to {
+    transform: scale(1);
   }
 }
 </style>
