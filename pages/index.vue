@@ -8,16 +8,11 @@
 
 
 <script>
-import sizeMix from "~/plugins/mixins/size.js";
 export default {
   asyncData({ isMobile }) {
     return { isMobile };
   },
 
-  mixins: [sizeMix],
-  components: {
-    threePart: () => import("../components/general/threePart/index.vue"),
-  },
   computed: {
     bv1() {
       return this.$store.getters["visible/bv1"];
@@ -35,7 +30,7 @@ export default {
       return this.$store.getters["device/mobile"];
     },
     path() {
-      return this.mobile || this.isMobile ? "mobile/" : "";
+      return this.mobile || this.isMobile ? "mobile/" : "desktop/";
     },
 
     firstPart() {

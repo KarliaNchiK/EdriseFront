@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import imgReColor from "../../../../ui/imgReColor.vue";
+import imgReColor from "~/components/ui/imgReColor.vue";
 export default {
   components: { imgReColor },
   props: ["title", "text", "img", "imgGrey", "subtitle"],

@@ -26,8 +26,8 @@ import sizeMix from "~/plugins/mixins/size.js";
 export default {
   mixins: [sizeMix],
   components: {
-    myBackgroundCanvas: () => import("~/components/canvas/index.vue"),
-    pcBlock: () => import("~/components/header/index.vue"),
+    myBackgroundCanvas: () => import("~/components/desktop/canvas/index.vue"),
+    pcBlock: () => import("~/components/desktop/header/index.vue"),
     mobileBlock: () => import("~/components/mobile/header/index.vue"),
     myLoadPage,
     backgroundMobile: () =>

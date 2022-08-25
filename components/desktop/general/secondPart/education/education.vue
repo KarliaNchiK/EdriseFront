@@ -41,7 +41,7 @@ export default {
   mixins: [sizeMix],
   components: {
     blockEduc,
-    cardPhoto: () => import("../../../ui/cardPhoto.vue"),
+    cardPhoto: () => import("~/components/ui/cardPhoto.vue"),
   },
   data: () => ({
     diplom: false,
