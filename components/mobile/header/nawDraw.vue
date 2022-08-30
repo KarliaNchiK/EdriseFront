@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { icons, appBarText } from "~/plugins/const.js";
+import { icons, appBarText } from "~/static/const/const.js";
 import mySwitchTheme from "../../ui/mySwitchTheme.vue";
 export default {
   components: {

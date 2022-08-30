@@ -18,10 +18,9 @@
 </template>
 
 <script>
-import planCard from "./planCard.vue";
 export default {
   components: {
-    planCard,
+    planCard: () => import("./planCard.vue"),
   },
   data: () => ({
     plans: [

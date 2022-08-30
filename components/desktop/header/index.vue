@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { appBarText } from "~/plugins/const.js";
+import { appBarText } from "~/static/const/const.js";
 export default {
   components: {
     mySwitchTheme: () => import("~/components/ui/mySwitchTheme.vue"),

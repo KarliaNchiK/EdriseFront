@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { aboutMe } from "~/plugins/const.js";
+import { aboutMe } from "~/static/const/const.js";
 export default {
   components: {
     contentCard: () => import("./card.vue"),

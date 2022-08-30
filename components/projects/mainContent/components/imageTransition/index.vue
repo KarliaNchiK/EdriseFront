@@ -20,7 +20,7 @@
 
 
 <script>
-import { imgs } from "~/plugins/const.js";
+import { imgs } from "~/static/const/const.js";
 export default {
   data: () => ({
     imgs: [],

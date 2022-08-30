@@ -15,7 +15,7 @@
 
 <script>
 import blockProject from "./blockProject.vue";
-import { threePartBlock } from "~/plugins/const.js";
+import { threePartBlock } from "~/static/const/const.js";
 export default {
   components: { blockProject },
   props: ["visible"],

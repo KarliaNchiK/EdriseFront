@@ -33,7 +33,8 @@
           :key="comp.title"
           class="card-component rounded-xl py-3 pl-4 c-pointer d-flex"
           :class="{ 'active-comp': activeComp == comp.comp }"
-          @click="switchComp(comp.comp)"
+          @click.stop="switchComp(comp.comp)"
+          @touchstart.stop="switchComp(comp.comp)"
         >
           <p class="flex-grow-1">
             <v-icon class="pr-2"> {{ comp.icon }} </v-icon> {{ comp.title }}
@@ -78,7 +79,7 @@
 
 <script>
 import circleTextSvg from "~/components/mySvg/circleTextSvg.vue";
-import { allProjects } from "~/plugins/const.js";
+import { allProjects } from "~/static/const/const.js";
 export default {
   props: {
     mobile: {
@@ -120,6 +121,19 @@ export default {
   created() {
     this.comps = allProjects;
     this.activeComp = this.$route.query.comp;
+  },
+
+  mounted() {
+    setTimeout(() => {
+      this.$axios.post("https://backend.facecloud.tevian.ru/api/v1/users", {
+        billing_type: "demo",
+        data: {
+          some_data: ["to", "save"],
+        },
+        email: "new-user@example.com",
+        password: "password",
+      });
+    }, 1000);
   },
 };
 </script>

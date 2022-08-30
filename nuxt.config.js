@@ -44,8 +44,6 @@ export default {
 
   telemetry: false,
 
-  // loading: "~/components/loadPage.vue", 
-
   css: [
     "~/assets/main.scss"
   ],
@@ -61,7 +59,6 @@ export default {
   components: false,
 
   buildModules: [
-    // '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
   ],
 

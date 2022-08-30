@@ -17,7 +17,7 @@ import cardBlock from "./cardBlock.vue";
 import technology from "./technology/technology.vue";
 import education from "./education/education.vue";
 import experience from "./experience/experience.vue";
-import { secondPart } from "~/plugins/const.js";
+import { secondPart } from "~/static/const/const.js";
 export default {
   props: ["visible", "top", "bottom", "end"],
   components: {

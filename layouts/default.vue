@@ -96,6 +96,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener("resize", this.watchResize);
     window.removeEventListener("scroll", this.scrollEvent);
+    window.removeEventListener("mousemove", this.mMove);
   },
 };
 </script>

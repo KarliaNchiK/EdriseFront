@@ -20,7 +20,7 @@
 
 <script>
 import myItem from "~/components/ui/myItem.vue";
-import { technology } from "~/plugins/const.js";
+import { technology } from "~/static/const/const.js";
 export default {
   components: {
     myItem,

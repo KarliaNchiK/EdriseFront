@@ -24,7 +24,7 @@
 <script>
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
-import { messages } from "~/plugins/const.js";
+import { messages } from "~/static/const/const.js";
 export default {
   components: {
     message: () => import("./typeMessages/message.vue"),

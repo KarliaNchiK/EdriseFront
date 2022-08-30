@@ -26,7 +26,7 @@
 
 <script>
 import cardProject from "./cardProject.vue";
-import { threePartBlock } from "~/plugins/const.js";
+import { threePartBlock } from "~/static/const/const.js";
 export default {
   props: ["visible"],
   components: {

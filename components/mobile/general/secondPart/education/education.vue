@@ -40,7 +40,7 @@
 
 <script>
 import blockEduc from "./educBlock.vue";
-import { diploms, educs } from "~/plugins/const.js";
+import { diploms, educs } from "~/static/const/const.js";
 export default {
   components: {
     blockEduc,

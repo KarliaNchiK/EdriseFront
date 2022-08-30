@@ -22,7 +22,7 @@
       </div>
     </div>
     <div
-      class="plan-card-content rounded-lg"
+      class="plan-card-content rounded-lg elevation-2"
       :class="[
         leftPos ? 'order-1 triangle-left' : 'order-3 triangle-right',
         { 'height-null': title == '' },
@@ -132,7 +132,6 @@ export default {
     .plan-content {
       background: white;
       box-sizing: border-box;
-      border: 1px solid $color;
 
       p {
         color: var(--v-colorText-base);

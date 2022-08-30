@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { projectImgs } from "~/plugins/const.js";
+import { projectImgs } from "~/static/const/const.js";
 export default {
   props: {
     deleteCustom: {

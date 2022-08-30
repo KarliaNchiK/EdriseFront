@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { projectImgs } from "~/plugins/const.js";
+import { projectImgs } from "~/static/const/const.js";
 export default {
   components: {
     test: () => import("./myMotiationImg.vue"),

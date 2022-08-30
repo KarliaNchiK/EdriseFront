@@ -24,7 +24,7 @@
 
 <script>
 import mainCard from "./mainCard";
-import { projectImgs } from "~/plugins/const.js";
+import { projectImgs } from "~/static/const/const.js";
 export default {
   components: {
     mainCard,

@@ -82,7 +82,7 @@
 
 <script>
 import testSvg from "./testSvg.vue";
-import { icons } from "~/plugins/const.js";
+import { icons } from "~/static/const/const.js";
 import circleTextSvg from "~/components/mySvg/circleTextSvg.vue";
 
 export default {
